@@ -1,5 +1,6 @@
 $gordon-blue: #014983;
 $meal-points-orange: #F2A42C;
+$banner-green: #33cd5f;
 $title-color: #eee;
 $page-color: #ddd;
 
@@ -43,6 +44,10 @@ header {
 main {
   text-align: center;
   .users-row {
+  .banner-link:hover {
+    display: block;
+    opacity: 0.75;
+  }
     height: $color-row-height;
     background-color: $meal-points-orange;
     h1.users-count {
