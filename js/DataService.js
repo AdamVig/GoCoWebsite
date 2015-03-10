@@ -27,7 +27,8 @@ app.service('DataService', [function () {
       var nameSplit = user._id.split('.');
       user.name = {
         "first": capitalizeFirstLetter(nameSplit[0]),
-        "last": capitalizeFirstLetter(nameSplit[1])
+        "last": capitalizeFirstLetter(nameSplit[1]),
+        "id": user._id
       };
       user.name.full = user.name.first + " " + user.name.last;
 
