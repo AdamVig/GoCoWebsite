@@ -43,16 +43,48 @@ header {
 }
 main {
   text-align: center;
-  .users-row {
   .banner-link:hover {
     display: block;
     opacity: 0.75;
   }
+  .color-row {
     height: $color-row-height;
-    background-color: $meal-points-orange;
-    h1.users-count {
+    h1 {
       color: $title-color;
-      @extend .vertical-align;
+    }
+    &.login-row {
+      background-color: $meal-points-orange;
+      height: 425px;
+      .login-content {
+        @extend .vertical-align;
+      }
+      .password-field {
+        height: 3rem;
+        border-color: $title-color;
+        border-radius: 0;
+      }
+      .submit-button {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        color: $title-color;
+        border-color: $title-color;
+      }
+    }
+    &.users-row {
+      background-color: $meal-points-orange;
+      .users-count {
+        @extend .vertical-align;
+      }
+    }
+    &.banner-row {
+      background-color: $banner-green;
+      .banner-content {
+        @extend .vertical-align;
+        .banner-body {
+          color: $title-color;
+        }
+      }
     }
   }
   .users-lists {
