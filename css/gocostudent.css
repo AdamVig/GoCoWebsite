@@ -1,0 +1,45 @@
+a { text-decoration: none; }
+body,
+html,
+main,
+.video-container {
+  width: 100%;
+  height: 100%; }
+main { text-align: center; }
+.logo-image { height: 55vh; }
+.button-image {
+  height: 10vh;
+  margin-top: 10px;  }
+.vertical-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+video {
+  display: none;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover; }
+.video-container {
+  background:
+    linear-gradient(
+      rgba(1, 43, 131, 0.45),
+      rgba(1, 43, 131, 0.45)
+    ),
+    url('../img/gocostudent/gordonaerial.jpg') no-repeat; }
+@media (min-device-width: 800px) {
+  .video-container { background:
+    linear-gradient(
+      rgba(1, 43, 131, 0.45),
+      rgba(1, 43, 131, 0.45)
+    ); }
+  video { display: block; }
+}
