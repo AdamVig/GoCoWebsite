@@ -1,7 +1,8 @@
-app.controller('DashboardController', ['$filter', 'DatabaseFactory', 'DataService', function ($filter, DatabaseFactory, DataService) {
+app.controller('DashboardController', ['$filter', 'DatabaseFactory', 'DataService', 'DatabaseConstant', function ($filter, DatabaseFactory, DataService, DatabaseConstant) {
 
   var dashboard = this;
   dashboard.usersToDisplay = 10;
+  dashboard.db = DatabaseConstant;
 
   // Get current banner
   DatabaseFactory.get('message').then(function (response) {
