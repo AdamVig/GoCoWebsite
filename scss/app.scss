@@ -1,0 +1,79 @@
+$gordon-blue: #014983;
+$meal-points-orange: #F2A42C;
+$title-color: #eee;
+$page-color: #ddd;
+
+$color-row-height: 200px;
+
+.vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: $meal-points-orange;
+}
+
+body {
+  background-color: $page-color;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+header {
+  height: $color-row-height;
+  background-color: $gordon-blue;
+  text-align: center;
+  .goco-logo {
+    height: 155px;
+    margin: 2rem;
+  }
+}
+main {
+  text-align: center;
+  .users-row {
+    height: $color-row-height;
+    background-color: $meal-points-orange;
+    h1.users-count {
+      color: $title-color;
+      @extend .vertical-align;
+    }
+  }
+  .users-lists {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    ul {
+      list-style: none;
+    }
+    &.container {
+      /* width: 100%; */
+      /* max-width: ; */
+    }
+    &.row {
+      margin-bottom: 0;
+    }
+  }
+}
+footer {
+  height: 50px;
+  padding-top: 1rem;
+  text-align: center;
+  background-color: $gordon-blue;
+  .database-link {
+    color: $title-color;
+  }
+  .database-link:hover {
+    color: $meal-points-orange;
+  }
+}
