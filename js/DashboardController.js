@@ -6,7 +6,7 @@ app.controller('DashboardController', ['$filter', 'DatabaseFactory', 'DataServic
 
   // Get current banner
   DatabaseFactory.get('message').then(function (response) {
-    dashboard.banner = response.data;
+    dashboard.banner = response.data.body ? response.data : null;
   });
 
   // Get all users
