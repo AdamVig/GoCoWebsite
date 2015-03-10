@@ -41,39 +41,71 @@
     <img class="goco-logo" src="img/logo.svg" alt="GoCo Student">
   </header>
   <main>
-    <div class="users-row">
-      <h1 class="users-count">{{dashboard.totalUsers}} Users</h1>
+    <div class="login-row color-row"
+      ng-show="!dashboard.authenticated">
+      <div class="login-content">
+        <h1>Login</h1>
+        <form>
+          <input type="password"
+            class="password-field"
+            ng-model="dashboard.password.attempt">
+          <button type="submit"
+            class="submit-button"
+            ng-click="dashboard.login()">
+            Go
+          </button>
+        </form>
+      </div>
     </div>
-    <div class="users-lists row container">
-      <div class="one-third column">
-        <h2>Recent</h2>
-        <ul>
-          <li ng-repeat="user in dashboard.users.recent | limitTo:dashboard.usersToDisplay">
-            <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
-              {{user.name.full}}
-            </a>
-          </li>
-        </ul>
+    <div ng-show="dashboard.authenticated">
+      <div class="users-row color-row">
+        <h1 class="users-count">
+          <span ng-bind="dashboard.totalUsers"></span> Users
+        </h1>
       </div>
-      <div class="one-third column">
-        <h2>New</h2>
-        <ul>
-          <li ng-repeat="user in dashboard.users.new | limitTo:dashboard.usersToDisplay">
-            <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
-              {{user.name.full}}
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="one-third column">
-        <h2>Frequent</h2>
-        <ul>
-          <li ng-repeat="user in dashboard.users.frequent | limitTo:dashboard.usersToDisplay">
-            <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
-              {{user.name.full}}
-            </a>
-          </li>
-        </ul>
+      <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/message"
+        class="banner-link">
+        <div class="banner-row color-row"
+          ng-if="dashboard.banner">
+          <div class="banner-content">
+            <h1 class="banner-title"
+              ng-bind="dashboard.banner.title"></h1>
+            <p class="banner-body"
+              ng-bind-html="dashboard.banner.body"></p>
+          </div>
+        </div>
+      </a>
+      <div class="users-lists row container">
+        <div class="one-third column">
+          <h2>Recent</h2>
+          <ul>
+            <li ng-repeat="user in dashboard.users.recent | limitTo:dashboard.usersToDisplay">
+              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
+                {{user.name.full}}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="one-third column">
+          <h2>New</h2>
+          <ul>
+            <li ng-repeat="user in dashboard.users.new | limitTo:dashboard.usersToDisplay">
+              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
+                {{user.name.full}}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="one-third column">
+          <h2>Frequent</h2>
+          <ul>
+            <li ng-repeat="user in dashboard.users.frequent | limitTo:dashboard.usersToDisplay">
+              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
+                {{user.name.full}}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </main>

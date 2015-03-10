@@ -3,6 +3,11 @@ app.controller('DashboardController', ['$filter', 'DatabaseFactory', 'DataServic
   var dashboard = this;
   dashboard.usersToDisplay = 10;
   dashboard.db = DatabaseConstant;
+  dashboard.authenticated = false;
+  dashboard.password = {
+    "correct": "dashboard",
+    "attempt": null
+  };
 
   // Get current banner
   DatabaseFactory.get('message').then(function (response) {
@@ -21,5 +26,14 @@ app.controller('DashboardController', ['$filter', 'DatabaseFactory', 'DataServic
       'new': $filter('orderBy')(dashboard.allUsers, 'firstLogin', true)
     };
   });
+
+  /**
+   * Login to access dashboard
+   */
+  dashboard.login = function () {
+    if (dashboard.password.attempt == dashboard.password.correct) {
+      dashboard.authenticated = true;
+    }
+  };
 
 }]);
