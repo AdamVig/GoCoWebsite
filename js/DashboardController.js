@@ -1,4 +1,4 @@
-app.controller('DashboardController', ['$filter', 'DatabaseFactory', 'DataService', 'DatabaseConstant', function ($filter, DatabaseFactory, DataService, DatabaseConstant) {
+app.controller('DashboardController', ['$filter', '$sce', 'DatabaseFactory', 'DataService', 'DatabaseConstant', function ($filter, $sce, DatabaseFactory, DataService, DatabaseConstant) {
 
   var dashboard = this;
   dashboard.usersToDisplay = 10;
@@ -11,7 +11,10 @@ app.controller('DashboardController', ['$filter', 'DatabaseFactory', 'DataServic
 
   // Get current banner
   DatabaseFactory.get('message').then(function (response) {
-    dashboard.banner = response.data.body ? response.data : null;
+    if (response.data.body) {
+      dashboard.banner = response.data;
+      dashboard.banner.body = $sce.trustAsHtml(dashboard.banner.body);
+    }
   });
 
   // Get all users
