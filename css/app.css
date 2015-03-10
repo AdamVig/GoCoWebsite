@@ -1,0 +1,81 @@
+.vertical-align, main .color-row.login-row .login-content, main .color-row.users-row .users-count, main .color-row.banner-row .banner-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  color: #F2A42C; }
+
+body {
+  background-color: #ddd;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  font-weight: 700; }
+
+header {
+  height: 200px;
+  background-color: #014983;
+  text-align: center; }
+  header .goco-logo {
+    height: 155px;
+    margin: 2rem; }
+
+main {
+  text-align: center; }
+  main .banner-link:hover {
+    display: block;
+    opacity: 0.75; }
+  main .color-row {
+    height: 200px; }
+    main .color-row h1 {
+      color: #eee; }
+    main .color-row.login-row {
+      background-color: #F2A42C;
+      height: 425px; }
+      main .color-row.login-row .password-field {
+        height: 3rem;
+        border-color: #eee;
+        border-radius: 0; }
+      main .color-row.login-row .submit-button {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        color: #eee;
+        border-color: #eee; }
+    main .color-row.users-row {
+      background-color: #F2A42C; }
+    main .color-row.banner-row {
+      background-color: #33cd5f; }
+      main .color-row.banner-row .banner-content .banner-body {
+        color: #eee; }
+  main .users-lists {
+    padding-top: 2rem;
+    padding-bottom: 2rem; }
+    main .users-lists ul {
+      list-style: none; }
+    main .users-lists.container {
+      /* width: 100%; */
+      /* max-width: ; */ }
+    main .users-lists.row {
+      margin-bottom: 0; }
+
+footer {
+  height: 50px;
+  padding-top: 1rem;
+  text-align: center;
+  background-color: #014983; }
+  footer .database-link {
+    color: #eee; }
+  footer .database-link:hover {
+    color: #F2A42C; }
