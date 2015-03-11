@@ -1,6 +1,7 @@
 $gordon-blue: #014983;
 $meal-points-orange: #F2A42C;
 $banner-green: #33cd5f;
+$error-red: red;
 $title-color: #eee;
 $page-color: #ddd;
 
@@ -56,7 +57,10 @@ main {
       background-color: $meal-points-orange;
       height: 425px;
       .login-content {
-        @extend .vertical-align;
+        padding-top: 4em;
+      }
+      .login-error {
+        color: $error-red;
       }
       .password-field {
         height: 3rem;
