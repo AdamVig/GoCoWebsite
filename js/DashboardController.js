@@ -38,7 +38,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$timeout', 'DatabaseF
     var timeout = 100;
 
     if (dashboard.password.failure === true) {
-      timeout = 1000;
+      timeout = 500;
       dashboard.password.failure = false;
     }
 
