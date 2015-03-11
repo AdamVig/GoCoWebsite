@@ -48,6 +48,10 @@
       ng-show="!dashboard.authenticated">
       <div class="login-content">
         <h1>Login</h1>
+        <h2 class="login-error"
+          ng-if="dashboard.password.failure">
+          Wrong password!
+        </h2>
         <form>
           <input type="password"
             autofocus
@@ -61,7 +65,7 @@
         </form>
       </div>
     </div>
-    <div ng-show="dashboard.authenticated">
+    <div ng-if="dashboard.authenticated">
       <div class="users-row color-row">
         <h1 class="users-count">
           <span ng-bind="dashboard.totalUsers"></span> Users
