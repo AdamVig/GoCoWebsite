@@ -56,6 +56,7 @@
           <input type="password"
             autofocus
             class="password-field"
+            ng-class="{'input-error': dashboard.password.failure === true}"
             ng-model="dashboard.password.attempt">
           <button type="submit"
             class="submit-button"
