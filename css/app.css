@@ -1,4 +1,4 @@
-.vertical-align, main .color-row.login-row .login-content, main .color-row.users-row .users-count, main .color-row.banner-row .banner-content {
+.vertical-align, main .color-row.users-row .users-count, main .color-row.banner-row .banner-content {
   position: relative;
   top: 50%;
   transform: translateY(-50%); }
@@ -23,6 +23,11 @@ h6 {
   text-transform: uppercase;
   font-weight: 700; }
 
+header,
+footer {
+  position: relative;
+  z-index: 3; }
+
 header {
   height: 200px;
   background-color: #014983;
@@ -37,12 +42,18 @@ main {
     display: block;
     opacity: 0.75; }
   main .color-row {
-    height: 200px; }
+    height: 200px;
+    position: relative;
+    z-index: 2; }
     main .color-row h1 {
       color: #eee; }
     main .color-row.login-row {
       background-color: #F2A42C;
-      height: 425px; }
+      height: 70vh; }
+      main .color-row.login-row .login-content {
+        padding-top: 4em; }
+      main .color-row.login-row .login-error {
+        color: red; }
       main .color-row.login-row .password-field {
         height: 3rem;
         border-color: #eee;
@@ -61,7 +72,9 @@ main {
         color: #eee; }
   main .users-lists {
     padding-top: 2rem;
-    padding-bottom: 2rem; }
+    padding-bottom: 2rem;
+    position: relative;
+    z-index: 1; }
     main .users-lists ul {
       list-style: none; }
     main .users-lists.container {
@@ -80,13 +93,23 @@ footer {
   footer .database-link:hover {
     color: #F2A42C; }
 
-.animated {
+.animated, .login-content, .login-error, .users-count,
+.banner-content {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
 
-.animated.infinite {
+.animated-short, .input-error {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s; }
+
+.animated-long, .goco-logo, .users-list, footer {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s; }
+
+.animated.infinite, .infinite.login-content, .infinite.login-error, .infinite.users-count,
+.infinite.banner-content {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite; }
 
@@ -124,7 +147,7 @@ footer {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0); } }
-.slideInLeft {
+.slideInLeft, .login-content {
   -webkit-animation-name: slideInLeft;
   animation-name: slideInLeft; }
 
@@ -165,7 +188,8 @@ footer {
     transform: scale3d(0.3, 0.3, 0.3); }
   50% {
     opacity: 1; } }
-.zoomIn {
+.zoomIn, .login-error, .users-count,
+.banner-content {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn; }
 
@@ -222,44 +246,68 @@ footer {
 
 @-webkit-keyframes slideInUp {
   0% {
-    -webkit-transform: translateY(25%);
-    transform: translateY(25%);
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
     visibility: visible; }
   100% {
     -webkit-transform: translateY(0);
     transform: translateY(0); } }
 @keyframes slideInUp {
   0% {
-    -webkit-transform: translateY(25%);
-    -ms-transform: translateY(25%);
-    transform: translateY(25%);
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
     visibility: visible; }
   100% {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0); } }
-.slideInUp {
+.slideInUp, footer {
   -webkit-animation-name: slideInUp;
   animation-name: slideInUp; }
 
 @-webkit-keyframes slideInDown {
   0% {
-    -webkit-transform: translateY(-25%);
-    transform: translateY(-25%);
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
     visibility: visible; }
   100% {
     -webkit-transform: translateY(0);
     transform: translateY(0); } }
 @keyframes slideInDown {
   0% {
-    -webkit-transform: translateY(-25%);
-    -ms-transform: translateY(-25%);
-    transform: translateY(-25%);
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
     visibility: visible; }
   100% {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0); } }
-.slideInDown {
+.slideInDown, .goco-logo, .users-list {
   -webkit-animation-name: slideInDown;
   animation-name: slideInDown; }
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0); } }
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0); } }
+.shake, .input-error {
+  -webkit-animation-name: shake;
+  animation-name: shake; }

@@ -1,0 +1,29 @@
+.goco-logo {
+  @extend .animated-long;
+  @extend .slideInDown;
+}
+.login-content {
+  @extend .animated;
+  @extend .slideInLeft;
+}
+.login-error {
+  @extend .animated;
+  @extend .zoomIn;
+}
+.input-error {
+  @extend .animated-short;
+  @extend .shake;
+}
+.users-count,
+.banner-content {
+  @extend .animated;
+  @extend .zoomIn;
+}
+.users-list {
+  @extend .animated-long;
+  @extend .slideInDown;
+}
+footer {
+  @extend .animated-long;
+  @extend .slideInUp;
+}
