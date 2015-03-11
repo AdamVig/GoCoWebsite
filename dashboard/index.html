@@ -84,7 +84,7 @@
         </div>
       </a>
       <div class="users-lists row container">
-        <div class="one-third column">
+        <div class="users-list one-third column">
           <h2>Recent</h2>
           <ul>
             <li ng-repeat="user in dashboard.users.recent | limitTo:dashboard.usersToDisplay">
@@ -94,7 +94,7 @@
             </li>
           </ul>
         </div>
-        <div class="one-third column">
+        <div class="users-list one-third column">
           <h2>New</h2>
           <ul>
             <li ng-repeat="user in dashboard.users.new | limitTo:dashboard.usersToDisplay">
@@ -104,7 +104,7 @@
             </li>
           </ul>
         </div>
-        <div class="one-third column">
+        <div class="users-list one-third column">
           <h2>Frequent</h2>
           <ul>
             <li ng-repeat="user in dashboard.users.frequent | limitTo:dashboard.usersToDisplay">
