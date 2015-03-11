@@ -5,7 +5,13 @@ $error-red: red;
 $title-color: #eee;
 $page-color: #ddd;
 
+$top-layer: 3;
+$color-row-layer: 2;
+$users-lists-layer: 1;
+
 $color-row-height: 200px;
+$login-row-height: 70vh;
+$footer-height: 50px;
 
 .vertical-align {
   position: relative;
@@ -33,6 +39,11 @@ h6 {
   text-transform: uppercase;
   font-weight: 700;
 }
+header,
+footer {
+  position: relative;
+  z-index: $top-layer;
+}
 header {
   height: $color-row-height;
   background-color: $gordon-blue;
@@ -50,12 +61,14 @@ main {
   }
   .color-row {
     height: $color-row-height;
+    position: relative;
+    z-index: $color-row-layer;
     h1 {
       color: $title-color;
     }
     &.login-row {
       background-color: $meal-points-orange;
-      height: 425px;
+      height: $login-row-height;
       .login-content {
         padding-top: 4em;
       }
@@ -94,6 +107,8 @@ main {
   .users-lists {
     padding-top: 2rem;
     padding-bottom: 2rem;
+    position: relative;
+    z-index: $users-lists-layer;
     ul {
       list-style: none;
     }
@@ -107,7 +122,7 @@ main {
   }
 }
 footer {
-  height: 50px;
+  height: $footer-height;
   padding-top: 1rem;
   text-align: center;
   background-color: $gordon-blue;
