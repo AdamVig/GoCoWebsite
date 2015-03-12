@@ -26,10 +26,11 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', 'Database
     DatabaseFactory.getChangesSince(dashboard.sequenceNumber)
     .then(function (response) {
 
+      // Update with latest sequence number
+      dashboard.sequenceNumber = response.data.last_seq;
+
       // If data has changed
-      if (dashboard.sequenceNumber != response.data.last_seq) {
-        // Update with latest sequence number
-        dashboard.sequenceNumber = response.data.last_seq;
+      if (response.data.results.length > 0) {
 
         dashboard.changed = true;
 
@@ -55,12 +56,13 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', 'Database
 
     dashboard.users = DataService.processAllUsersResponse(response);
 
-    // Get latest change
-    return DatabaseFactory.getLatestChange();
+    // Get database info
+    return DatabaseFactory.getInfo();
   }).then(function (response) {
 
-    if (response.data.last_seq) {
-      dashboard.sequenceNumber = response.data.last_seq;
+    // Save update sequence number and start refresh
+    if (response.data.update_seq) {
+      dashboard.sequenceNumber = response.data.update_seq;
       $interval(dashboard.refreshData, dashboard.refreshInterval);
     }
   });

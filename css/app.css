@@ -77,9 +77,8 @@ main {
     z-index: 1; }
     main .users-lists ul {
       list-style: none; }
-    main .users-lists.container {
-      /* width: 100%; */
-      /* max-width: ; */ }
+    main .users-lists .user-link {
+      padding: 0.5rem; }
     main .users-lists.row {
       margin-bottom: 0; }
 
@@ -94,7 +93,7 @@ footer {
     color: #F2A42C; }
 
 .animated, .login-content, .login-error, .users-count,
-.banner-content {
+.banner-content, .user-changed {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
@@ -109,7 +108,7 @@ footer {
   animation-duration: 2s; }
 
 .animated.infinite, .infinite.login-content, .infinite.login-error, .infinite.users-count,
-.infinite.banner-content {
+.infinite.banner-content, .infinite.user-changed {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite; }
 
@@ -325,3 +324,17 @@ footer {
 .flash, .changed {
   -webkit-animation-name: flash;
   animation-name: flash; }
+
+@-webkit-keyframes flashBackgroundOrange {
+  0%, 50%, 100% {
+    background-color: transparent; }
+  25%, 75% {
+    background-color: #F2A42C; } }
+@keyframes flashBackgroundOrange {
+  0%, 50%, 100% {
+    background-color: transparent; }
+  25%, 75% {
+    background-color: #F2A42C; } }
+.flashBackgroundOrange, .user-changed {
+  -webkit-animation-name: flashBackgroundOrange;
+  animation-name: flashBackgroundOrange; }

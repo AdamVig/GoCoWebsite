@@ -89,7 +89,9 @@
           <h2>Recent</h2>
           <ul>
             <li ng-repeat="user in dashboard.users.filtered.recent | limitTo:dashboard.usersToDisplay">
-              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
+              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
+                class="user-link"
+                ng-class="{'user-changed': user.changed}">
                 {{user.name.full}}
               </a>
             </li>
@@ -99,7 +101,9 @@
           <h2>New</h2>
           <ul>
             <li ng-repeat="user in dashboard.users.filtered.new | limitTo:dashboard.usersToDisplay">
-              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
+              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
+                class="user-link"
+                ng-class="{'user-changed': user.changed}">
                 {{user.name.full}}
               </a>
             </li>
@@ -109,7 +113,9 @@
           <h2>Frequent</h2>
           <ul>
             <li ng-repeat="user in dashboard.users.filtered.frequent | limitTo:dashboard.usersToDisplay">
-              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
+              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
+                class="user-link"
+                ng-class="{'user-changed': user.changed}">
                 {{user.name.full}}
               </a>
             </li>

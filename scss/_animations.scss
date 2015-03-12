@@ -31,3 +31,7 @@ footer {
   @extend .animated-short;
   @extend .flash;
 }
+.user-changed {
+  @extend .animated;
+  @extend .flashBackgroundOrange;
+}

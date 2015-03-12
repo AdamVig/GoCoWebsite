@@ -112,9 +112,8 @@ main {
     ul {
       list-style: none;
     }
-    &.container {
-      /* width: 100%; */
-      /* max-width: ; */
+    .user-link {
+      padding: 0.5rem;
     }
     &.row {
       margin-bottom: 0;

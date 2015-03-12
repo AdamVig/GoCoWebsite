@@ -32,6 +32,8 @@ app.service('DataService', ['$filter', function ($filter) {
    */
   this.processChanges = function (allUsers, changes) {
 
+    allUsers = removeChangedProperty(allUsers);
+
     // Process changed docs
     changes = extractDocs(changes);
     changes = getUserNames(changes);
@@ -40,9 +42,8 @@ app.service('DataService', ['$filter', function ($filter) {
     // Replace original docs with changed docs
     changes.map(function (changedUser) {
 
-      var originalUserIndex = _.findIndex(
-        allUsers,
-        function (user) { return changedUser.name.id == user.name.id; });
+      changedUser.changed = true;
+      var originalUserIndex = findUserIndex(changedUser, allUsers);
 
       // User exists, update data
       if (originalUserIndex > -1) {
@@ -113,6 +114,17 @@ app.service('DataService', ['$filter', function ($filter) {
   }
 
   /**
+   * Remove property 'changed' from all users
+   * @param {array} allUsers Contains user objects
+   */
+  function removeChangedProperty(allUsers) {
+    return allUsers.map(function (user) {
+      delete user.changed;
+      return user;
+    });
+  }
+
+  /**
    * Filter users into recent, new, and frequent categories
    * @param {array} allUsers Contains user docs
    */
@@ -150,6 +162,18 @@ app.service('DataService', ['$filter', function ($filter) {
    */
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  /**
+   * Find index of user in array of users
+   * @param {object} user Contains name.id
+   * @param {array} users Contains user objects
+   */
+  function findUserIndex(user, users) {
+    return _.findIndex(
+      users,
+      function (u) { return user.name.id == u.name.id; }
+    );
   }
 
 }]);

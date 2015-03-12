@@ -349,3 +349,33 @@
   -webkit-animation-name: flash;
           animation-name: flash;
 }
+
+@mixin flashBackground($backgroundColor, $animationName) {
+
+  @-webkit-keyframes #{$animationName} {
+    0%, 50%, 100% {
+      background-color: transparent;
+    }
+
+    25%, 75% {
+      background-color: $backgroundColor;
+    }
+  }
+
+  @keyframes #{$animationName} {
+    0%, 50%, 100% {
+      background-color: transparent;
+    }
+
+    25%, 75% {
+      background-color: $backgroundColor;
+    }
+  }
+
+  .#{$animationName} {
+    -webkit-animation-name: #{$animationName};
+            animation-name: #{$animationName};
+  }
+}
+
+@include flashBackground($meal-points-orange, 'flashBackgroundOrange');

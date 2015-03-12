@@ -126,12 +126,8 @@ app.factory('DatabaseFactory', ['$http', 'DatabaseConstant', function($http, Dat
      * Get latest change from database
      * @return {promise}    Promise resolved by response object
      */
-    this.getLatestChange = function () {
-      return $http({
-        method: "GET",
-        url: makeRequestUrl(couchInfo.url, databaseName, '_changes'),
-        params: { limit: 1, descending: true }
-      });
+    this.getInfo = function () {
+      return $http.get(makeRequestUrl(couchInfo.url, databaseName, ''));
     };
 
     /**
