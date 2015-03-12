@@ -45,19 +45,19 @@
   </header>
   <main>
     <div class="login-row color-row"
-      ng-show="!dashboard.authenticated">
+      ng-show="!dashboard.auth.authenticated">
       <div class="login-content">
         <h1>Login</h1>
         <h2 class="login-error"
-          ng-if="dashboard.password.failure">
+          ng-if="dashboard.auth.failure">
           Wrong password!
         </h2>
         <form>
           <input type="password"
             autofocus
             class="password-field"
-            ng-class="{'input-error': dashboard.password.failure === true}"
-            ng-model="dashboard.password.attempt">
+            ng-class="{'input-error': dashboard.auth.failure === true}"
+            ng-model="dashboard.auth.attempt">
           <button type="submit"
             class="submit-button"
             ng-click="dashboard.login()">
@@ -66,7 +66,7 @@
         </form>
       </div>
     </div>
-    <div ng-if="dashboard.authenticated">
+    <div ng-if="dashboard.auth.authenticated">
       <div class="users-row color-row">
         <h1 class="users-count">
           <span ng-bind="dashboard.totalUsers"></span> Users
@@ -126,6 +126,7 @@
   <script src="/js/app.js"></script>
   <script src="/js/DatabaseFactory.js"></script>
   <script src="/js/DataService.js"></script>
+  <script src="/js/LoginService.js"></script>
   <script src="/js/DashboardController.js"></script>
 </body>
 </html>

@@ -1,13 +1,13 @@
-app.controller('DashboardController', ['$filter', '$sce', '$timeout', 'DatabaseFactory', 'DataService', 'DatabaseConstant', function ($filter, $sce, $timeout, DatabaseFactory, DataService, DatabaseConstant) {
+app.controller('DashboardController', ['$filter', '$sce', '$timeout', 'DatabaseFactory', 'DataService', 'LoginService', 'DatabaseConstant', function ($filter, $sce, $timeout, DatabaseFactory, DataService, LoginService, DatabaseConstant) {
 
   var dashboard = this;
   dashboard.usersToDisplay = 10;
   dashboard.db = DatabaseConstant;
-  dashboard.authenticated = false;
-  dashboard.password = {
-    "correct": "dashboard",
-    "attempt": null,
-    "failure": false
+  dashboard.auth = {
+    "password": "dashboard",
+    "userAttempt": null,
+    "wrong": false,
+    "authenticated": false
   };
 
   // Get current banner
@@ -31,25 +31,8 @@ app.controller('DashboardController', ['$filter', '$sce', '$timeout', 'DatabaseF
     };
   });
 
-  /**
-   * Login to access dashboard
-   */
   dashboard.login = function () {
-    var timeout = 100;
-
-    if (dashboard.password.failure === true) {
-      timeout = 500;
-      dashboard.password.failure = false;
-    }
-
-    // Short delay to indicate password is still wrong
-    $timeout(function () {
-      if (dashboard.password.attempt == dashboard.password.correct) {
-        dashboard.authenticated = true;
-      } else {
-        dashboard.password.failure = true;
-      }
-    }, timeout);
+    dashboard.auth = LoginService.login(dashboard.auth);
   };
 
 }]);
