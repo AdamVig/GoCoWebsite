@@ -20,19 +20,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$timeout', 'DatabaseF
 
   // Get all users
   DatabaseFactory.getAll().then(function (response) {
-
-    dashboard.allUsers = DataService.extractDocs(response);
-    dashboard.allUsers = DataService.cleanUsers(dashboard.allUsers);
-    dashboard.totalUsers = dashboard.allUsers.length;
-    dashboard.users = {
-      'recent': $filter('orderBy')(dashboard.allUsers,
-        function (user) { return new Date(user.lastLogin); },
-        true),
-      'new': $filter('orderBy')(dashboard.allUsers,
-        function (user) { return new Date(user.firstLogin); },
-        true),
-      'frequent': $filter('orderBy')(dashboard.allUsers, 'totalLogins', true)
-    };
+    dashboard.users = DataService.processAllUsers(response);
   });
 
   dashboard.login = function () {

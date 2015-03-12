@@ -88,7 +88,7 @@
         <div class="users-list one-third column">
           <h2>Recent</h2>
           <ul>
-            <li ng-repeat="user in dashboard.users.recent | limitTo:dashboard.usersToDisplay">
+            <li ng-repeat="user in dashboard.users.filtered.recent | limitTo:dashboard.usersToDisplay">
               <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
                 {{user.name.full}}
               </a>
@@ -98,7 +98,7 @@
         <div class="users-list one-third column">
           <h2>New</h2>
           <ul>
-            <li ng-repeat="user in dashboard.users.new | limitTo:dashboard.usersToDisplay">
+            <li ng-repeat="user in dashboard.users.filtered.new | limitTo:dashboard.usersToDisplay">
               <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
                 {{user.name.full}}
               </a>
@@ -108,7 +108,7 @@
         <div class="users-list one-third column">
           <h2>Frequent</h2>
           <ul>
-            <li ng-repeat="user in dashboard.users.frequent | limitTo:dashboard.usersToDisplay">
+            <li ng-repeat="user in dashboard.users.filtered.frequent | limitTo:dashboard.usersToDisplay">
               <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}">
                 {{user.name.full}}
               </a>
