@@ -7,7 +7,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$timeout', 'DatabaseF
     "password": "dashboard",
     "userAttempt": null,
     "wrong": false,
-    "authenticated": false
+    "authenticated": LoginService.checkLogin()
   };
 
   // Get current banner
