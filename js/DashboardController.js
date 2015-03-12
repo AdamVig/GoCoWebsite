@@ -25,9 +25,13 @@ app.controller('DashboardController', ['$filter', '$sce', '$timeout', 'DatabaseF
     dashboard.allUsers = DataService.cleanUsers(dashboard.allUsers);
     dashboard.totalUsers = dashboard.allUsers.length;
     dashboard.users = {
-      'recent': $filter('orderBy')(dashboard.allUsers, 'lastLogin', true),
-      'frequent': $filter('orderBy')(dashboard.allUsers, 'totalLogins', true),
-      'new': $filter('orderBy')(dashboard.allUsers, 'firstLogin', true)
+      'recent': $filter('orderBy')(dashboard.allUsers,
+        function (user) { return new Date(user.lastLogin); },
+        true),
+      'new': $filter('orderBy')(dashboard.allUsers,
+        function (user) { return new Date(user.firstLogin); },
+        true),
+      'frequent': $filter('orderBy')(dashboard.allUsers, 'totalLogins', true)
     };
   });
 
