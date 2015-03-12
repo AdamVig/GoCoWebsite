@@ -1,43 +1,69 @@
 app.service('DataService', ['$filter', function ($filter) {
 
+  var DataService = this;
+
   /**
    * Process all users from database response
    * @param {object} response Contains data, status, etc.
    */
-  this.processAllUsers = function (response) {
+  this.processAllUsersResponse = function (response) {
+    var allDocs = extractDocs(response.data.rows);
+    var allUsers = removeNonUserDocs(allDocs);
 
-    var orderBy = $filter('orderBy');
+    return DataService.processAllUsers(allUsers);
+  };
 
-    var allUsers = extractDocs(response);
-    allUsers = removeNonUserDocs(allUsers);
+  /**
+   * Process all users
+   * @param {array} allUsers Contains user docs
+   */
+  this.processAllUsers = function (allUsers) {
+
     allUsers = getUserNames(allUsers);
     allUsers = removeDatabaseProperties(allUsers);
 
-    var users = {};
-    users.recent = orderBy(allUsers,
-      function (user) { return new Date(user.lastLogin); },
-      true);
-    users.new = orderBy(allUsers,
-      function (user) { return new Date(user.firstLogin); },
-      true);
-    users.frequent = orderBy(allUsers, 'totalLogins', true);
+    return outputUsers(allUsers);
+  };
 
-    var totalUsers = allUsers.length;
+  /**
+   * Update all users with changes
+   * @param {array} allUsers Contains user docs
+   * @param {array} changes Contains changed user docs
+   */
+  this.processChanges = function (allUsers, changes) {
 
-    return {
-      "all": allUsers,
-      "filtered": users,
-      "total": totalUsers
-    };
+    // Process changed docs
+    changes = extractDocs(changes);
+    changes = getUserNames(changes);
+    changes = removeDatabaseProperties(changes);
+
+    // Replace original docs with changed docs
+    changes.map(function (changedUser) {
+
+      var originalUserIndex = _.findIndex(
+        allUsers,
+        function (user) { return changedUser.name.id == user.name.id; });
+
+      // User exists, update data
+      if (originalUserIndex > -1) {
+        allUsers[originalUserIndex] = changedUser;
+
+      // New user, add to all users
+      } else {
+        allUsers.push(changedUser);
+      }
+    });
+
+    return outputUsers(allUsers);
   };
 
   /**
    * Extract docs
-   * @param {object} response Contains data, status, etc.
-   * @return {array}          Contains all docs from response
+   * @param {array}  metaDocs Contains metaDocs
+   * @return {array}          Contains docs
    */
-  function extractDocs(response) {
-    return response.data.rows.map(function (metaDoc) {
+  function extractDocs(metaDocs) {
+    return metaDocs.map(function (metaDoc) {
       return metaDoc.doc;
     });
   }
@@ -84,6 +110,37 @@ app.service('DataService', ['$filter', function ($filter) {
       delete user._rev;
       return user;
     });
+  }
+
+  /**
+   * Filter users into recent, new, and frequent categories
+   * @param {array} allUsers Contains user docs
+   */
+  function filterUsers(allUsers) {
+    var orderBy = $filter('orderBy');
+    return {
+      "recent": orderBy(allUsers,
+        function (user) { return new Date(user.lastLogin); },
+        true),
+      "new": orderBy(allUsers,
+        function (user) { return new Date(user.firstLogin); },
+        true),
+      "frequent": orderBy(allUsers, 'totalLogins', true)
+    };
+  }
+
+  /**
+   * Output users in required format
+   * @param {array} allUsers Contains user docs
+   * @return {object}        Contains all users (array), filtered users
+   *                         (object), and total users (number)
+   */
+  function outputUsers(allUsers) {
+    return {
+      "all": allUsers,
+      "filtered": filterUsers(allUsers),
+      "total": allUsers.length
+    };
   }
 
   /**

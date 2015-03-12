@@ -100,7 +100,7 @@ footer {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
 
-.animated-short, .input-error {
+.animated-short, .input-error, .changed {
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s; }
 
@@ -311,3 +311,17 @@ footer {
 .shake, .input-error {
   -webkit-animation-name: shake;
   animation-name: shake; }
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1; }
+  25%, 75% {
+    opacity: 0; } }
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1; }
+  25%, 75% {
+    opacity: 0; } }
+.flash, .changed {
+  -webkit-animation-name: flash;
+  animation-name: flash; }

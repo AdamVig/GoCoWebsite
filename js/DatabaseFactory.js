@@ -122,6 +122,31 @@ app.factory('DatabaseFactory', ['$http', 'DatabaseConstant', function($http, Dat
       });
     };
 
+    /**
+     * Get latest change from database
+     * @return {promise}    Promise resolved by response object
+     */
+    this.getLatestChange = function () {
+      return $http({
+        method: "GET",
+        url: makeRequestUrl(couchInfo.url, databaseName, '_changes'),
+        params: { limit: 1, descending: true }
+      });
+    };
+
+    /**
+     * Get changes since a given sequence number
+     * @param {string} sequenceNumber Sequence number at a certain point in
+     *                                the history of the database
+     */
+    this.getChangesSince = function (sequenceNumber) {
+      return $http({
+        method: "GET",
+        url: makeRequestUrl(couchInfo.url, databaseName, '_changes'),
+        params: { since: sequenceNumber, include_docs: true }
+      });
+    };
+
     this.createSession(couchInfo);
   }
 

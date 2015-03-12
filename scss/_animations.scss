@@ -27,3 +27,7 @@ footer {
   @extend .animated-long;
   @extend .slideInUp;
 }
+.changed {
+  @extend .animated-short;
+  @extend .flash;
+}
