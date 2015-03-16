@@ -34,7 +34,7 @@ video {
       rgba(1, 43, 131, 0.45),
       rgba(1, 43, 131, 0.45)
     ),
-    url('../img/gocostudent/gordonaerial.jpg') no-repeat; }
+    url('../img/gordonaerial.jpg') no-repeat; }
 @media (min-device-width: 800px) {
   .video-container { background:
     linear-gradient(
