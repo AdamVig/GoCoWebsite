@@ -1,4 +1,4 @@
-app.controller('DashboardController', ['$filter', '$sce', '$interval', 'DatabaseFactory', 'DataService', 'LoginService', 'DatabaseConstant', function ($filter, $sce, $interval, DatabaseFactory, DataService, LoginService, DatabaseConstant) {
+app.controller('DashboardController', ['$filter', '$sce', '$interval', 'DatabaseFactory', 'DataService', 'LoginService', 'DatabaseConstant', 'RefreshService', function ($filter, $sce, $interval, DatabaseFactory, DataService, LoginService, DatabaseConstant, RefreshService) {
 
   var dashboard = this;
   dashboard.sequenceNumber = null;
@@ -33,6 +33,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', 'Database
       if (response.data.results.length > 0) {
 
         dashboard.changed = true;
+        RefreshService.flashTitle();
 
         // Update users with changes
         dashboard.users = DataService.processChanges(
