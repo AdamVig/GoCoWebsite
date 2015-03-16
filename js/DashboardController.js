@@ -1,6 +1,7 @@
 app.controller('DashboardController', ['$filter', '$sce', '$interval', 'DatabaseFactory', 'DataService', 'LoginService', 'DatabaseConstant', 'RefreshService', function ($filter, $sce, $interval, DatabaseFactory, DataService, LoginService, DatabaseConstant, RefreshService) {
 
   var dashboard = this;
+  dashboard.loading = true;
   dashboard.sequenceNumber = null;
   dashboard.usersToDisplay = 10;
   dashboard.refreshInterval = 5000;
@@ -60,6 +61,8 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', 'Database
     // Get database info
     return DatabaseFactory.getInfo();
   }).then(function (response) {
+
+    dashboard.loading = false;
 
     // Save update sequence number and start refresh
     if (response.data.update_seq) {

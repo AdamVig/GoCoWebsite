@@ -51,7 +51,7 @@ main {
       background-color: #F2A42C;
       height: 70vh; }
       main .color-row.login-row .login-content {
-        padding-top: 4em; }
+        padding-top: 4rem; }
       main .color-row.login-row .login-error {
         color: red; }
       main .color-row.login-row .password-field {
@@ -64,6 +64,17 @@ main {
         display: block;
         color: #eee;
         border-color: #eee; }
+    main .color-row.loading-row {
+      background-color: #F2A42C;
+      height: 70vh; }
+      main .color-row.loading-row .loading-content {
+        padding-top: 4rem; }
+      main .color-row.loading-row .loading-spinner {
+        width: 50px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #eee; }
     main .color-row.users-row {
       background-color: #F2A42C; }
     main .color-row.banner-row {
@@ -92,7 +103,7 @@ footer {
   footer .database-link:hover {
     color: #F2A42C; }
 
-.animated, .login-content, .login-error, .users-count,
+.animated, main .color-row.loading-row .loading-spinner, .login-content, .login-error, .users-count,
 .banner-content, .user-changed {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -107,7 +118,7 @@ footer {
   -webkit-animation-duration: 2s;
   animation-duration: 2s; }
 
-.animated.infinite, .infinite.login-content, .infinite.login-error, .infinite.users-count,
+.animated.infinite, main .color-row.loading-row .loading-spinner, .infinite.login-content, .infinite.login-error, .infinite.users-count,
 .infinite.banner-content, .infinite.user-changed {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite; }
@@ -338,3 +349,29 @@ footer {
 .flashBackgroundOrange, .user-changed {
   -webkit-animation-name: flashBackgroundOrange;
   animation-name: flashBackgroundOrange; }
+
+@-webkit-keyframes rotatePlane {
+  0% {
+    -webkit-transform: perspective(120px);
+    transform: perspective(120px); }
+  50% {
+    -webkit-transform: perspective(120px) rotateY(180deg);
+    transform: perspective(120px) rotateY(180deg); }
+  100% {
+    -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
+    transform: perspective(120px) rotateY(180deg) rotateX(180deg); } }
+@keyframes rotatePlane {
+  0% {
+    -webkit-transform: perspective(120px);
+    transform: perspective(120px); }
+  50% {
+    -webkit-transform: perspective(120px) rotateY(180deg);
+    transform: perspective(120px) rotateY(180deg); }
+  100% {
+    -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
+    transform: perspective(120px) rotateY(180deg) rotateX(180deg); } }
+.rotatePlane, main .color-row.loading-row .loading-spinner {
+  -webkit-animation-name: rotatePlane;
+  animation-name: rotatePlane;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out; }

@@ -11,6 +11,7 @@ $users-lists-layer: 1;
 
 $color-row-height: 200px;
 $login-row-height: 70vh;
+$loading-row-height: 70vh;
 $footer-height: 50px;
 
 .vertical-align {
@@ -70,7 +71,7 @@ main {
       background-color: $meal-points-orange;
       height: $login-row-height;
       .login-content {
-        padding-top: 4em;
+        padding-top: 4rem;
       }
       .login-error {
         color: $error-red;
@@ -86,6 +87,23 @@ main {
         display: block;
         color: $title-color;
         border-color: $title-color;
+      }
+    }
+    &.loading-row {
+      background-color: $meal-points-orange;
+      height: $loading-row-height;
+      .loading-content {
+        padding-top: 4rem;
+      }
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $title-color;
+        @extend .animated;
+        @extend .infinite;
+        @extend .rotatePlane;
       }
     }
     &.users-row {

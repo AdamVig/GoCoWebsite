@@ -66,7 +66,14 @@
         </form>
       </div>
     </div>
-    <div ng-if="dashboard.auth.authenticated">
+    <div class="loading-row color-row"
+      ng-show="dashboard.loading && dashboard.auth.authenticated">
+      <div class="loading-content">
+        <h1>Loading</h1>
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
+    <div ng-if="dashboard.auth.authenticated && !dashboard.loading">
       <div class="users-row color-row">
         <h1 class="users-count">
           <span ng-bind="dashboard.users.total"></span> Users
