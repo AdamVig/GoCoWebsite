@@ -81,6 +81,30 @@ main {
       background-color: #33cd5f; }
       main .color-row.banner-row .banner-content .banner-body {
         color: #eee; }
+    main .color-row.search-row {
+      min-height: 200px;
+      height: auto;
+      background-color: #33cd5f;
+      padding-top: 4rem;
+      padding-bottom: 1rem; }
+      main .color-row.search-row .search-box {
+        width: 300px;
+        border-radius: 0;
+        position: relative;
+        z-index: 3; }
+      main .color-row.search-row .search-dropdown {
+        max-height: 250px;
+        width: 310px;
+        position: relative;
+        z-index: 2;
+        margin-top: -15px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5px;
+        background-color: #fff;
+        border: 1px solid #D1D1D1;
+        list-style: none;
+        text-align: left; }
   main .users-lists {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -103,14 +127,14 @@ footer {
   footer .database-link:hover {
     color: #F2A42C; }
 
-.animated, main .color-row.loading-row .loading-spinner, .login-content, .login-error, .users-count,
-.banner-content, .user-changed {
+.animated, .login-content, .login-error, .users-count,
+.banner-content, .user-changed, .loading-spinner {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
 
-.animated-short, .input-error, .changed {
+.animated-short, .input-error, .changed, .search-dropdown {
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s; }
 
@@ -118,8 +142,8 @@ footer {
   -webkit-animation-duration: 2s;
   animation-duration: 2s; }
 
-.animated.infinite, main .color-row.loading-row .loading-spinner, .infinite.login-content, .infinite.login-error, .infinite.users-count,
-.infinite.banner-content, .infinite.user-changed {
+.animated.infinite, .infinite.login-content, .infinite.login-error, .infinite.users-count,
+.infinite.banner-content, .infinite.user-changed, .loading-spinner {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite; }
 
@@ -199,7 +223,7 @@ footer {
   50% {
     opacity: 1; } }
 .zoomIn, .login-error, .users-count,
-.banner-content {
+.banner-content, .search-dropdown {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn; }
 
@@ -370,7 +394,7 @@ footer {
   100% {
     -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
     transform: perspective(120px) rotateY(180deg) rotateX(180deg); } }
-.rotatePlane, main .color-row.loading-row .loading-spinner {
+.rotatePlane, .loading-spinner {
   -webkit-animation-name: rotatePlane;
   animation-name: rotatePlane;
   -webkit-animation-timing-function: ease-in-out;

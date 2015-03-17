@@ -129,6 +129,22 @@
           </ul>
         </div>
       </div>
+      <div class="search-row color-row">
+        <h1>Search</h1>
+        <input type="search"
+          class="search-box"
+          placeholder="Enter a name"
+          ng-model="dashboard.searchQuery"
+          ng-blur="dashboard.hideSearchResults = true"
+          ng-focus="dashboard.hideSearchResults = false">
+        <ul class="search-dropdown"
+          ng-if="dashboard.searchQuery && !dashboard.hideSearchResults">
+          <li ng-repeat="userName in dashboard.users.names | filter:dashboard.searchQuery | limitTo:5">
+            {{userName}}
+          </li>
+        </ul>
+
+      </div>
     </div>
   </main>
   <footer>

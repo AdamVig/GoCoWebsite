@@ -2,6 +2,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', 'Database
 
   var dashboard = this;
   dashboard.loading = true;
+  dashboard.hideSearchResults = true;
   dashboard.sequenceNumber = null;
   dashboard.usersToDisplay = 10;
   dashboard.refreshInterval = 5000;

@@ -125,10 +125,21 @@ app.service('DataService', ['$filter', function ($filter) {
   }
 
   /**
-   * Filter users into recent, new, and frequent categories
+   * Extract names from all users
+   * @param {array} allUsers Contains user objects
+   * @return {array}         Contains names of all users as strings
+   */
+  function extractNames(allUsers) {
+    return allUsers.map(function (user) {
+      return user.name.full;
+    });
+  }
+
+  /**
+   * Sort users in recent, new, and frequent categories
    * @param {array} allUsers Contains user docs
    */
-  function filterUsers(allUsers) {
+  function sortUsers(allUsers) {
     var orderBy = $filter('orderBy');
     return {
       "recent": orderBy(allUsers,
@@ -150,7 +161,8 @@ app.service('DataService', ['$filter', function ($filter) {
   function outputUsers(allUsers) {
     return {
       "all": allUsers,
-      "filtered": filterUsers(allUsers),
+      "names": extractNames(allUsers),
+      "filtered": sortUsers(allUsers),
       "total": allUsers.length
     };
   }

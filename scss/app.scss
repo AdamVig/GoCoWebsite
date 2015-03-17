@@ -101,9 +101,6 @@ main {
         margin-left: auto;
         margin-right: auto;
         background-color: $title-color;
-        @extend .animated;
-        @extend .infinite;
-        @extend .rotatePlane;
       }
     }
     &.users-row {
@@ -119,6 +116,33 @@ main {
         .banner-body {
           color: $title-color;
         }
+      }
+    }
+    &.search-row {
+      min-height: $color-row-height;
+      height: auto;
+      background-color: $banner-green;
+      padding-top: 4rem;
+      padding-bottom: 1rem;
+      .search-box {
+        width: 300px;
+        border-radius: 0;
+        position: relative;
+        z-index: $top-layer;
+      }
+      .search-dropdown {
+        max-height: 250px;
+        width: 310px;
+        position: relative;
+        z-index: $color-row-layer;
+        margin-top: -15px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5px;
+        background-color: #fff;
+        border: 1px solid #D1D1D1;
+        list-style: none;
+        text-align: left;
       }
     }
   }

@@ -35,3 +35,12 @@ footer {
   @extend .animated;
   @extend .flashBackgroundOrange;
 }
+.loading-spinner {
+  @extend .animated;
+  @extend .infinite;
+  @extend .rotatePlane;
+}
+.search-dropdown {
+  @extend .animated-short;
+  @extend .zoomIn;
+}
