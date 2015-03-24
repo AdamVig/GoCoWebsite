@@ -92,4 +92,19 @@ app.service('NotificationService', ['$document', '$window', '$interval', '$timeo
       notification.close();
     }, notifTime);
   };
+
+  /**
+   * Play a notification sound
+   * @param {String} audio Path to audio file (optional)
+   */
+  this.notifySound = function (audio) {
+    var soundPath = "/sounds/Stumble.mp3";
+
+    // Use parameter if provided
+    if (audio) soundPath = audio;
+
+    // Create and play sound
+    var sound = new Audio(soundPath);
+    sound.play();
+  };
 }]);

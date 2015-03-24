@@ -118,7 +118,7 @@ main {
       margin-bottom: 0; }
 
 footer {
-  height: 50px;
+  height: 75px;
   padding-top: 1rem;
   text-align: center;
   background-color: #014983; }
@@ -126,6 +126,17 @@ footer {
     color: #eee; }
   footer .database-link:hover {
     color: #F2A42C; }
+  footer .notifications-toggle {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat; }
+    footer .notifications-toggle.notifications-on {
+      background-image: url("/img/dashboard/volume-on.svg"); }
+    footer .notifications-toggle.notifications-off {
+      background-image: url("/img/dashboard/volume-off.svg"); }
 
 .animated, .login-content, .login-error, .users-count,
 .banner-content, .user-changed, .loading-spinner {

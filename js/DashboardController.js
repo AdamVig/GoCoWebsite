@@ -7,6 +7,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
   dashboard.usersToDisplay = 10;
   dashboard.refreshInterval = 5000;
   dashboard.db = DatabaseConstant;
+  dashboard.notifySound = true;
 
   NotificationService.requestDesktopPermission();
 
@@ -49,10 +50,14 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
         if (dashboard.users.filtered.new.length >
               oldUsers.filtered.new.length) {
 
+          if (dashboard.notifySound) {
+            NotificationService.notifySound();
+          }
+
           NotificationService.flashTitle("New user!");
           NotificationService.notifyDesktop(
             "A new user downloaded GoCo Student.",
-            "New User | GoCo Student");
+            "New User!");
         }
       }
     });
