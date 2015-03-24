@@ -54,6 +54,8 @@ app.service('NotificationService', ['$document', '$window', '$interval', '$timeo
    */
   this.requestDesktopPermission = function () {
 
+    var errorMessage = "This browser does not support desktop notifications.";
+
     // Check for notifications support
     if (!$window.Notification) {
       console.error(errorMessage);
