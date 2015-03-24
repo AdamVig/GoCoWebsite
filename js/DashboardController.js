@@ -1,13 +1,15 @@
 app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout', 'DatabaseFactory', 'DataService', 'LoginService', 'DatabaseConstant', 'NotificationService', function ($filter, $sce, $interval, $timeout, DatabaseFactory, DataService, LoginService, DatabaseConstant, NotificationService) {
 
   var dashboard = this;
+  dashboard.config = {
+    hideSearchResults: true,
+    usersToDisplay: 10,
+    refreshInterval: 5000,
+    notifySound: false
+  };
   dashboard.loading = true;
-  dashboard.hideSearchResults = true;
   dashboard.sequenceNumber = null;
-  dashboard.usersToDisplay = 10;
-  dashboard.refreshInterval = 5000;
   dashboard.db = DatabaseConstant;
-  dashboard.notifySound = true;
 
   NotificationService.requestDesktopPermission();
 
@@ -88,7 +90,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
       // Save update sequence number and start refresh
       if (response.data.update_seq) {
         dashboard.sequenceNumber = response.data.update_seq;
-        $interval(dashboard.refreshData, dashboard.refreshInterval);
+        $interval(dashboard.refreshData, dashboard.config.refreshInterval);
       }
     });
   }, 1000);

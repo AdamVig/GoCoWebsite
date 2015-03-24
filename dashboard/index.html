@@ -95,7 +95,7 @@
         <div class="users-list one-third column">
           <h2>Recent</h2>
           <ul>
-            <li ng-repeat="user in dashboard.users.filtered.recent | limitTo:dashboard.usersToDisplay">
+            <li ng-repeat="user in dashboard.users.filtered.recent | limitTo:dashboard.config.usersToDisplay">
               <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
                 class="user-link"
                 ng-class="{'user-changed': user.changed}">
@@ -107,7 +107,7 @@
         <div class="users-list one-third column">
           <h2>New</h2>
           <ul>
-            <li ng-repeat="user in dashboard.users.filtered.new | limitTo:dashboard.usersToDisplay">
+            <li ng-repeat="user in dashboard.users.filtered.new | limitTo:dashboard.config.usersToDisplay">
               <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
                 class="user-link"
                 ng-class="{'user-changed': user.changed}">
@@ -119,7 +119,7 @@
         <div class="users-list one-third column">
           <h2>Frequent</h2>
           <ul>
-            <li ng-repeat="user in dashboard.users.filtered.frequent | limitTo:dashboard.usersToDisplay">
+            <li ng-repeat="user in dashboard.users.filtered.frequent | limitTo:dashboard.config.usersToDisplay">
               <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
                 class="user-link"
                 ng-class="{'user-changed': user.changed}">
@@ -135,10 +135,10 @@
           class="search-box"
           placeholder="Enter a name"
           ng-model="dashboard.searchQuery"
-          ng-blur="dashboard.hideSearchResults = true"
-          ng-focus="dashboard.hideSearchResults = false">
+          ng-blur="dashboard.config.hideSearchResults = true"
+          ng-focus="dashboard.config.hideSearchResults = false">
         <ul class="search-dropdown"
-          ng-if="dashboard.searchQuery && !dashboard.hideSearchResults">
+          ng-if="dashboard.searchQuery && !dashboard.config.hideSearchResults">
           <li ng-repeat="userName in dashboard.users.names | filter:dashboard.searchQuery | limitTo:5">
             {{userName}}
           </li>
@@ -150,8 +150,8 @@
   <footer>
     <a class="database-link" href="{{dashboard.db.url}}/dashboard.html">Database Dashboard</a>
     <div class="notifications-toggle"
-      ng-class="dashboard.notifySound ? 'notifications-on' : 'notifications-off'"
-      ng-click="dashboard.notifySound = !dashboard.notifySound"></div>
+      ng-class="dashboard.config.notifySound ? 'notifications-on' : 'notifications-off'"
+      ng-click="dashboard.config.notifySound = !dashboard.config.notifySound"></div>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
