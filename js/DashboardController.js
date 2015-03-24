@@ -1,4 +1,4 @@
-app.controller('DashboardController', ['$filter', '$sce', '$interval', 'DatabaseFactory', 'DataService', 'LoginService', 'DatabaseConstant', 'NotificationService', function ($filter, $sce, $interval, DatabaseFactory, DataService, LoginService, DatabaseConstant, NotificationService) {
+app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout', 'DatabaseFactory', 'DataService', 'LoginService', 'DatabaseConstant', 'NotificationService', function ($filter, $sce, $interval, $timeout, DatabaseFactory, DataService, LoginService, DatabaseConstant, NotificationService) {
 
   var dashboard = this;
   dashboard.loading = true;
@@ -58,31 +58,35 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', 'Database
     });
   };
 
-  // Get current banner
-  DatabaseFactory.get('message').then(function (response) {
+  // Wait for page animations to finish
+  $timeout(function () {
+    // Get current banner
+    DatabaseFactory.get('message').then(function (response) {
 
-    if (response.data.body) {
-      dashboard.banner = response.data;
-      dashboard.banner.body = $sce.trustAsHtml(dashboard.banner.body);
-    }
+      if (response.data.body) {
+        dashboard.banner = response.data;
+        dashboard.banner.body = $sce.trustAsHtml(dashboard.banner.body);
+      }
 
-    // Get all users
-    return DatabaseFactory.getAll();
-  }).then(function (response) {
+      // Get all users
+      return DatabaseFactory.getAll();
+    }).then(function (response) {
 
-    dashboard.users = DataService.processAllUsersResponse(response);
+      dashboard.users = DataService.processAllUsersResponse(response);
 
-    // Get database info
-    return DatabaseFactory.getInfo();
-  }).then(function (response) {
+      // Get database info
+      return DatabaseFactory.getInfo();
+    }).then(function (response) {
 
-    dashboard.loading = false;
+      dashboard.loading = false;
 
-    // Save update sequence number and start refresh
-    if (response.data.update_seq) {
-      dashboard.sequenceNumber = response.data.update_seq;
-      $interval(dashboard.refreshData, dashboard.refreshInterval);
-    }
-  });
+      // Save update sequence number and start refresh
+      if (response.data.update_seq) {
+        dashboard.sequenceNumber = response.data.update_seq;
+        $interval(dashboard.refreshData, dashboard.refreshInterval);
+      }
+    });
+  }, 1000);
+
 
 }]);
