@@ -1,4 +1,4 @@
-app.controller('DashboardController', ['$filter', '$sce', '$interval', 'DatabaseFactory', 'DataService', 'LoginService', 'DatabaseConstant', 'RefreshService', function ($filter, $sce, $interval, DatabaseFactory, DataService, LoginService, DatabaseConstant, RefreshService) {
+app.controller('DashboardController', ['$filter', '$sce', '$interval', 'DatabaseFactory', 'DataService', 'LoginService', 'DatabaseConstant', 'NotificationService', function ($filter, $sce, $interval, DatabaseFactory, DataService, LoginService, DatabaseConstant, NotificationService) {
 
   var dashboard = this;
   dashboard.loading = true;
@@ -7,6 +7,8 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', 'Database
   dashboard.usersToDisplay = 10;
   dashboard.refreshInterval = 5000;
   dashboard.db = DatabaseConstant;
+
+  NotificationService.requestDesktopPermission();
 
   dashboard.auth = {
     "password": "dashboard",
@@ -34,13 +36,24 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', 'Database
       // If data has changed
       if (response.data.results.length > 0) {
 
+        var oldUsers = dashboard.users;
+
         dashboard.changed = true;
-        RefreshService.flashTitle();
 
         // Update users with changes
         dashboard.users = DataService.processChanges(
           dashboard.users.all,
           response.data.results);
+
+        // If new user
+        if (dashboard.users.filtered.new.length >
+              oldUsers.filtered.new.length) {
+
+          NotificationService.flashTitle("New user!");
+          NotificationService.notifyDesktop(
+            "A new user downloaded GoCo Student.",
+            "New User | GoCo Student");
+        }
       }
     });
   };
