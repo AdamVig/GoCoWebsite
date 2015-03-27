@@ -25,6 +25,14 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
     dashboard.auth = LoginService.login(dashboard.auth);
   };
 
+  dashboard.toggleSound = function () {
+    dashboard.config.notifySound = !dashboard.config.notifySound;
+
+    if (dashboard.config.notifySound) {
+      NotificationService.notifySound();
+    }
+  };
+
   // Refresh dashboard data
   dashboard.refreshData = function () {
 
@@ -52,7 +60,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
         if (dashboard.users.filtered.new.length >
               oldUsers.filtered.new.length) {
 
-          if (dashboard.notifySound) {
+          if (dashboard.config.notifySound) {
             NotificationService.notifySound();
           }
 
