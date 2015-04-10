@@ -44,128 +44,14 @@
     <img class="goco-logo" src="/img/logo.svg" alt="GoCo Student">
   </header>
   <main>
-    <div class="login-row color-row"
-      ng-show="!dashboard.auth.authenticated">
-      <div class="login-content">
-        <h1>Login</h1>
-        <h2 class="login-error"
-          ng-if="dashboard.auth.wrong">
-          Wrong password!
-        </h2>
-        <form>
-          <input type="password"
-            autofocus
-            class="password-field"
-            ng-class="{'input-error': dashboard.auth.failure === true}"
-            ng-model="dashboard.auth.userAttempt">
-          <button type="submit"
-            class="submit-button"
-            ng-click="dashboard.login()">
-            Go
-          </button>
-        </form>
-      </div>
-    </div>
-    <div class="loading-row color-row"
-      ng-show="dashboard.loading && dashboard.auth.authenticated">
-      <div class="loading-content">
-        <h1>Loading</h1>
-        <div class="loading-spinner"></div>
-      </div>
-    </div>
+    <ng-include src="'html/_login-row.html'"></ng-include>
+    <ng-include src="'html/_loading-row.html'"></ng-include>
     <div ng-if="dashboard.auth.authenticated && !dashboard.loading">
-      <div class="users-row color-row">
-        <h1 class="users-count"
-            ng-click="dashboard.config.showTotalUsers = !dashboard.config.showTotalUsers">
-          <div ng-show="dashboard.config.showTotalUsers">
-            <span ng-bind="dashboard.users.total"></span> Users
-          </div>
-          <div ng-show="!dashboard.config.showTotalUsers">
-            <span ng-bind="dashboard.stats.schoolPercentage"></span>% Of School
-          </div>
-        </h1>
-      </div>
-      <div class="stats-row color-row">
-        <div class="row container">
-          <div class="one-third column">
-            <h4>Avg Total Logins:</h4>
-            <h2 ng-bind="dashboard.stats.totalLogins"></h2>
-          </div>
-          <div class="one-third column">
-            <h4>Time/Last Login:</h4>
-            <h2 ng-bind="dashboard.stats.lastLogin"></h2>
-          </div>
-          <div class="one-third column">
-            <h4>New Users/Day:</h4>
-            <h2 ng-bind="dashboard.stats.usersPerDay"></h2>
-          </div>
-        </div>
-      </div>
-      <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/message"
-        class="banner-link">
-        <div class="banner-row color-row"
-          ng-if="dashboard.banner">
-          <div class="banner-content">
-            <h1 class="banner-title"
-              ng-bind="dashboard.banner.title"></h1>
-            <p class="banner-body"
-              ng-bind-html="dashboard.banner.body"></p>
-          </div>
-        </div>
-      </a>
-      <div class="users-lists row container">
-        <div class="users-list one-third column">
-          <h2>Recent</h2>
-          <ul>
-            <li ng-repeat="user in dashboard.users.filtered.recent | limitTo:dashboard.config.usersToDisplay">
-              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
-                class="user-link"
-                ng-class="{'user-changed': user.changed}">
-                {{user.name.full}}
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="users-list one-third column">
-          <h2>New</h2>
-          <ul>
-            <li ng-repeat="user in dashboard.users.filtered.new | limitTo:dashboard.config.usersToDisplay">
-              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
-                class="user-link"
-                ng-class="{'user-changed': user.changed}">
-                {{user.name.full}}
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="users-list one-third column">
-          <h2>Frequent</h2>
-          <ul>
-            <li ng-repeat="user in dashboard.users.filtered.frequent | limitTo:dashboard.config.usersToDisplay">
-              <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
-                class="user-link"
-                ng-class="{'user-changed': user.changed}">
-                {{user.name.full}}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="search-row color-row">
-        <h1>Search</h1>
-        <input type="search"
-          class="search-box"
-          placeholder="Enter a name"
-          ng-model="dashboard.searchQuery"
-          ng-blur="dashboard.config.hideSearchResults = true"
-          ng-focus="dashboard.config.hideSearchResults = false">
-        <ul class="search-dropdown"
-          ng-if="dashboard.searchQuery && !dashboard.config.hideSearchResults">
-          <li ng-repeat="userName in dashboard.users.names | filter:dashboard.searchQuery | limitTo:5">
-            {{userName}}
-          </li>
-        </ul>
-      </div>
+      <ng-include src="'html/_users-row.html'"></ng-include>
+      <ng-include src="'html/_banner-row.html'"></ng-include>
+      <ng-include src="'html/_stats-row.html'"></ng-include>
+      <ng-include src="'html/_users-lists.html'"></ng-include>
+      <ng-include src="'html/_search-row.html'"></ng-include>
     </div>
   </main>
   <footer>

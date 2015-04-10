@@ -1,0 +1,38 @@
+<div class="users-lists row container">
+  <div class="users-list one-third column">
+    <h2>Recent</h2>
+    <ul>
+      <li ng-repeat="user in dashboard.users.filtered.recent | limitTo:dashboard.config.usersToDisplay">
+        <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
+          class="user-link"
+          ng-class="{'user-changed': user.changed}">
+          {{user.name.full}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="users-list one-third column">
+    <h2>New</h2>
+    <ul>
+      <li ng-repeat="user in dashboard.users.filtered.new | limitTo:dashboard.config.usersToDisplay">
+        <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
+          class="user-link"
+          ng-class="{'user-changed': user.changed}">
+          {{user.name.full}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="users-list one-third column">
+    <h2>Frequent</h2>
+    <ul>
+      <li ng-repeat="user in dashboard.users.filtered.frequent | limitTo:dashboard.config.usersToDisplay">
+        <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
+          class="user-link"
+          ng-class="{'user-changed': user.changed}">
+          {{user.name.full}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
