@@ -1,4 +1,4 @@
-.vertical-align, main .color-row.users-row .users-count, main .color-row.banner-row .banner-content {
+.vertical-align, main .color-row.users-row .users-count, main .color-row.stats-row > .container, main .color-row.banner-row .banner-content {
   position: relative;
   top: 50%;
   transform: translateY(-50%); }
@@ -45,7 +45,7 @@ main {
     height: 200px;
     position: relative;
     z-index: 2; }
-    main .color-row h1 {
+    main .color-row h1, main .color-row h2, main .color-row h3, main .color-row h4, main .color-row h5, main .color-row h6 {
       color: #eee; }
     main .color-row.login-row {
       background-color: #F2A42C;
@@ -79,6 +79,21 @@ main {
       background-color: #F2A42C; }
       main .color-row.users-row .users-count {
         cursor: pointer; }
+    main .color-row.stats-row {
+      height: 350px;
+      background-color: #9650BF;
+      padding-top: 15px; }
+      main .color-row.stats-row h4 {
+        margin-bottom: 0; }
+      main .color-row.stats-row .column:not(:last-child) > h2 {
+        margin-bottom: 4rem; }
+    @media (min-width: 580px) {
+      main .color-row.stats-row {
+        height: 200px; }
+        main .color-row.stats-row h4 {
+          margin-bottom: 1rem; }
+        main .color-row.stats-row .column:not(:last-child) > h2 {
+          margin-bottom: 0; } }
     main .color-row.banner-row {
       background-color: #33cd5f; }
       main .color-row.banner-row .banner-content .banner-body {
@@ -141,7 +156,7 @@ footer {
       background-image: url("/img/dashboard/volume-off.svg"); }
 
 .animated, .login-content, .login-error, .users-count,
-.banner-content, .user-changed, .loading-spinner {
+.banner-content, .stats-row .column, .user-changed, .loading-spinner {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
@@ -158,7 +173,7 @@ footer {
   animation-duration: 2s; }
 
 .animated.infinite, .infinite.login-content, .infinite.login-error, .infinite.users-count,
-.infinite.banner-content, .infinite.user-changed, .loading-spinner {
+.infinite.banner-content, .stats-row .infinite.column, .stats-row .column.loading-spinner, .infinite.user-changed, .loading-spinner {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite; }
 
@@ -414,3 +429,48 @@ footer {
   animation-name: rotatePlane;
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out; }
+
+@-webkit-keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    opacity: 0; }
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-transition-timing-function: ease-in; }
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1; }
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }
+  100% {
+    -webkit-transform: perspective(400px); } }
+@keyframes flipInX {
+  0% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transition-timing-function: ease-in;
+    opacity: 0; }
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transition-timing-function: ease-in; }
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1; }
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }
+  100% {
+    transform: perspective(400px); } }
+.flipInX, .stats-row .column {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInX;
+  animation-name: flipInX; }
+
+.users-count,
+.banner-content {
+  -webkit-animation-delay: 150ms;
+  animation-delay: 150ms; }
+
+.stats-row .column {
+  -webkit-animation-delay: 150ms;
+  animation-delay: 150ms; }

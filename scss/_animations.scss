@@ -18,6 +18,14 @@
 .banner-content {
   @extend .animated;
   @extend .zoomIn;
+  -webkit-animation-delay: $animation-delay;
+          animation-delay: $animation-delay;
+}
+.stats-row .column {
+  @extend .animated;
+  @extend .flipInX;
+  -webkit-animation-delay: $animation-delay;
+          animation-delay: $animation-delay;
 }
 .users-list {
   @extend .animated-long;

@@ -1,5 +1,6 @@
 $gordon-blue: #014983;
 $meal-points-orange: #F2A42C;
+$stats-color: #9650BF;
 $banner-green: #33cd5f;
 $error-red: red;
 $title-color: #eee;
@@ -17,6 +18,7 @@ $footer-height: 75px;
 $volume-on-icon: '/img/dashboard/volume-on.svg';
 $volume-off-icon: '/img/dashboard/volume-off.svg';
 
+$animation-delay: 150ms;
 
 .vertical-align {
   position: relative;
@@ -68,7 +70,7 @@ main {
     height: $color-row-height;
     position: relative;
     z-index: $color-row-layer;
-    h1 {
+    h1, h2, h3, h4, h5, h6 {
       color: $title-color;
     }
     &.login-row {
@@ -112,6 +114,31 @@ main {
       .users-count {
         @extend .vertical-align;
         cursor: pointer;
+      }
+    }
+    &.stats-row {
+      height: 350px;
+      background-color: $stats-color;
+      padding-top: 15px;
+      > .container {
+        @extend .vertical-align;
+      }
+      h4 {
+        margin-bottom: 0;
+      }
+      .column:not(:last-child) > h2 {
+        margin-bottom: 4rem;
+      }
+    }
+    @media (min-width: 580px) {
+      &.stats-row {
+        height: $color-row-height;
+        h4 {
+          margin-bottom: 1rem;
+        }
+        .column:not(:last-child) > h2 {
+          margin-bottom: 0;
+        }
       }
     }
     &.banner-row {

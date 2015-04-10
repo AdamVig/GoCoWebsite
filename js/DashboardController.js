@@ -1,4 +1,4 @@
-app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout', 'DatabaseFactory', 'DataService', 'LoginService', 'DatabaseConstant', 'NotificationService', function ($filter, $sce, $interval, $timeout, DatabaseFactory, DataService, LoginService, DatabaseConstant, NotificationService) {
+app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout', 'DatabaseFactory', 'DataService', 'StatsService', 'LoginService', 'DatabaseConstant', 'NotificationService', function ($filter, $sce, $interval, $timeout, DatabaseFactory, DataService, StatsService, LoginService, DatabaseConstant, NotificationService) {
 
   var dashboard = this;
   dashboard.config = {
@@ -57,17 +57,13 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
           dashboard.users.all,
           response.data.results);
 
-        // Set percentage
-        dashboard.users.percentage = oldUsers.percentage;
+        // Update statistics
+        dashboard.stats = StatsService.getStatistics(
+          dashboard.users.all, dashboard.appInfo);
 
         // If new user
         if (dashboard.users.filtered.new.length >
               oldUsers.filtered.new.length) {
-
-          // Recalculate percentage of school
-          dashboard.users.percentage = DataService.getSchoolPercentage(
-            dashboard.users.total,
-            dashboard.appInfo.totalStudents);
 
           // Play sound if enabled
           if (dashboard.config.notifySound) {
@@ -84,7 +80,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
     });
   };
 
-  // Wait for page animations to finish
+  // Wait for page animations to finish, then load data
   $timeout(function () {
     // Get current banner
     DatabaseFactory.get('message').then(function (response) {
@@ -100,9 +96,8 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
 
       dashboard.appInfo = DataService.getAppInfo(response);
       dashboard.users = DataService.processAllUsersResponse(response);
-      dashboard.users.percentage = DataService.getSchoolPercentage(
-        dashboard.users.total,
-        dashboard.appInfo.totalStudents);
+      dashboard.stats = StatsService.getStatistics(
+        dashboard.users.all, dashboard.appInfo);
 
       // Get database info
       return DatabaseFactory.getInfo();
@@ -117,6 +112,4 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
       }
     });
   }, 1000);
-
-
 }]);

@@ -70,16 +70,6 @@ app.service('DataService', ['$filter', function ($filter) {
   };
 
   /**
-   * Get percentage of students at school that are users of the app
-   * @param {number} totalUsers     Total number of users of the app
-   * @param {number} schoolStudents Total number of students at the school
-   * @return {number}               Percentage of the school using the app
-   */
-  this.getSchoolPercentage = function (totalUsers, schoolStudents) {
-    return Math.round(totalUsers / schoolStudents * 100);
-  };
-
-  /**
    * Extract docs
    * @param {array}  metaDocs Contains metaDocs
    * @return {array}          Contains docs
