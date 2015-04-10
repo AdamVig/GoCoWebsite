@@ -82,19 +82,16 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
 
   // Wait for page animations to finish, then load data
   $timeout(function () {
-    // Get current banner
-    DatabaseFactory.get('message').then(function (response) {
 
-      if (response.data.body) {
-        dashboard.banner = response.data;
+    DatabaseFactory.getAll().then(function (response) {
+
+      dashboard.appInfo = DataService.getAppInfo(response);
+
+      if (dashboard.appInfo.banner.title) {
+        dashboard.banner = dashboard.appInfo.banner;
         dashboard.banner.body = $sce.trustAsHtml(dashboard.banner.body);
       }
 
-      // Get all users
-      return DatabaseFactory.getAll();
-    }).then(function (response) {
-
-      dashboard.appInfo = DataService.getAppInfo(response);
       dashboard.users = DataService.processAllUsersResponse(response);
       dashboard.stats = StatsService.getStatistics(
         dashboard.users.all, dashboard.appInfo);
