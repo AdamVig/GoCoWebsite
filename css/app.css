@@ -77,6 +77,8 @@ main {
         background-color: #eee; }
     main .color-row.users-row {
       background-color: #F2A42C; }
+      main .color-row.users-row .users-count {
+        cursor: pointer; }
     main .color-row.banner-row {
       background-color: #33cd5f; }
       main .color-row.banner-row .banner-content .banner-body {

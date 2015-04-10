@@ -59,6 +59,27 @@ app.service('DataService', ['$filter', function ($filter) {
   };
 
   /**
+   * Get app info doc from alldocs response
+   * @param {object} response Contains data, status, etc.
+   * @return {object}         App info doc containing school population, etc.
+   */
+  this.getAppInfo = function (response) {
+    return extractDocs(response.data.rows).filter(function (doc) {
+      return doc._id == 'info';
+    })[0];
+  };
+
+  /**
+   * Get percentage of students at school that are users of the app
+   * @param {number} totalUsers     Total number of users of the app
+   * @param {number} schoolStudents Total number of students at the school
+   * @return {number}               Percentage of the school using the app
+   */
+  this.getSchoolPercentage = function (totalUsers, schoolStudents) {
+    return Math.round(totalUsers / schoolStudents * 100);
+  };
+
+  /**
    * Extract docs
    * @param {array}  metaDocs Contains metaDocs
    * @return {array}          Contains docs
@@ -71,14 +92,14 @@ app.service('DataService', ['$filter', function ($filter) {
 
   /**
    * Remove non-user docs from array of docs
+   * Tests for the existence of a period ('.') in _id of docs
    * @param {array} allDocs Contains doc objects
    * @return {array}        Contains only user doc objects
    */
   function removeNonUserDocs (allDocs) {
     return allDocs.filter(function (doc) {
-      if (doc._id.indexOf('.') > -1) {
-        return doc;
-      }
+      // Filter out any docs without a period ('.') in their _id
+      return doc._id.indexOf('.') > -1;
     });
   }
 
@@ -156,14 +177,18 @@ app.service('DataService', ['$filter', function ($filter) {
    * Output users in required format
    * @param {array} allUsers Contains user docs
    * @return {object}        Contains all users (array), filtered users
-   *                         (object), and total users (number)
+   *                         (object), percentage of school (number)and
+   *                         total users (number)
    */
   function outputUsers(allUsers) {
+
+    var totalUsers = allUsers.length;
+
     return {
       "all": allUsers,
       "names": extractNames(allUsers),
       "filtered": sortUsers(allUsers),
-      "total": allUsers.length
+      "total": totalUsers
     };
   }
 

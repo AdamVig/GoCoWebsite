@@ -5,7 +5,8 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
     hideSearchResults: true,
     usersToDisplay: 10,
     refreshInterval: 5000,
-    notifySound: false
+    notifySound: false,
+    showTotalUsers: false
   };
   dashboard.loading = true;
   dashboard.sequenceNumber = null;
@@ -60,10 +61,17 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
         if (dashboard.users.filtered.new.length >
               oldUsers.filtered.new.length) {
 
+          // Recalculate percentage of school
+          dashboard.users.percentage = DataService.getSchoolPercentage(
+            dashboard.users.total,
+            dashboard.appInfo.totalStudents);
+
+          // Play sound if enabled
           if (dashboard.config.notifySound) {
             NotificationService.notifySound();
           }
 
+          // Notify
           NotificationService.flashTitle("New user!");
           NotificationService.notifyDesktop(
             "A new user downloaded GoCo Student.",
@@ -87,7 +95,11 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
       return DatabaseFactory.getAll();
     }).then(function (response) {
 
+      dashboard.appInfo = DataService.getAppInfo(response);
       dashboard.users = DataService.processAllUsersResponse(response);
+      dashboard.users.percentage = DataService.getSchoolPercentage(
+        dashboard.users.total,
+        dashboard.appInfo.totalStudents);
 
       // Get database info
       return DatabaseFactory.getInfo();

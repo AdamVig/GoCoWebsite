@@ -75,8 +75,14 @@
     </div>
     <div ng-if="dashboard.auth.authenticated && !dashboard.loading">
       <div class="users-row color-row">
-        <h1 class="users-count">
-          <span ng-bind="dashboard.users.total"></span> Users
+        <h1 class="users-count"
+            ng-click="dashboard.config.showTotalUsers = !dashboard.config.showTotalUsers">
+          <div ng-show="dashboard.config.showTotalUsers">
+            <span ng-bind="dashboard.users.total"></span> Users
+          </div>
+          <div ng-show="!dashboard.config.showTotalUsers">
+            <span ng-bind="dashboard.users.percentage"></span>% Of School
+          </div>
         </h1>
       </div>
       <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/message"

@@ -111,6 +111,7 @@ main {
       background-color: $meal-points-orange;
       .users-count {
         @extend .vertical-align;
+        cursor: pointer;
       }
     }
     &.banner-row {
