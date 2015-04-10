@@ -50,7 +50,7 @@ app.service('NotificationService', ['$document', '$window', '$interval', '$timeo
 
   /**
    * Request permission to show desktop notifications
-   * Logs error if notifications are not supported in browser
+   * Logs info if notifications are not supported in browser
    */
   this.requestDesktopPermission = function () {
 
@@ -58,7 +58,7 @@ app.service('NotificationService', ['$document', '$window', '$interval', '$timeo
 
     // Check for notifications support
     if (!$window.Notification) {
-      console.error(errorMessage);
+      console.info(errorMessage);
       return;
     } else {
       if ($window.Notification.permission !== "granted") {
