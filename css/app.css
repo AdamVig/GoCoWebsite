@@ -168,7 +168,7 @@ footer {
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s; }
 
-.animated-long, .goco-logo, .users-list, footer {
+.animated-long, .goco-logo, .users-list, .footer-content {
   -webkit-animation-duration: 2s;
   animation-duration: 2s; }
 
@@ -326,7 +326,7 @@ footer {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0); } }
-.slideInUp, footer {
+.slideInUp, .footer-content {
   -webkit-animation-name: slideInUp;
   animation-name: slideInUp; }
 
