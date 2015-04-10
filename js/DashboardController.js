@@ -57,6 +57,9 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
           dashboard.users.all,
           response.data.results);
 
+        // Set percentage
+        dashboard.users.percentage = oldUsers.percentage;
+
         // If new user
         if (dashboard.users.filtered.new.length >
               oldUsers.filtered.new.length) {
