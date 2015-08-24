@@ -1,0 +1,35 @@
+$colors: (
+  white: #FFF,
+  muted-gray: #838C8D,
+  blue: #014983,
+  orange: #F2A42C,
+  purple: #9650BF,
+  mint-green: #58F5A7,
+  light-red: #F2726D,
+  dark-green: #24A552,
+  dark-red: #A51914,
+  dark-yellow: #FFBB00,
+  light-teal: #46DBD3
+);
+
+$gordon-blue: #014983;
+$meal-points-orange: #F2A42C;
+$stats-color: #9650BF;
+$banner-green: #33cd5f;
+$error-red: red;
+$title-color: #eee;
+$page-color: #ddd;
+
+$top-layer: 3;
+$color-row-layer: 2;
+$users-lists-layer: 1;
+
+$color-row-height: 200px;
+$login-row-height: 70vh;
+$loading-row-height: 70vh;
+$footer-height: 75px;
+
+$volume-on-icon: '/img/dashboard/volume-on.svg';
+$volume-off-icon: '/img/dashboard/volume-off.svg';
+
+$animation-delay: 150ms;
