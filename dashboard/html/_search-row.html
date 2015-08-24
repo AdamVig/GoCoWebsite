@@ -3,13 +3,17 @@
   <input type="search"
     class="search-box"
     placeholder="Enter a name"
-    ng-model="dashboard.searchQuery"
-    ng-blur="dashboard.config.hideSearchResults = true"
+    ng-model="dashboard.searchQuery.name.full"
     ng-focus="dashboard.config.hideSearchResults = false">
   <ul class="search-dropdown"
     ng-if="dashboard.searchQuery && !dashboard.config.hideSearchResults">
-    <li ng-repeat="userName in dashboard.users.names | filter:dashboard.searchQuery | limitTo:5">
-      {{userName}}
+    <li ng-repeat="user in dashboard.users.all | filter:dashboard.searchQuery | limitTo:5">
+      <a href="{{dashboard.db.url}}/dashboard.html#database/gocostudent/{{user.name.id}}"
+        class="user-link"
+        target="_blank"
+        ng-class="{'user-changed': user.changed}">
+        {{user.name.full}}
+      </a>
     </li>
   </ul>
 </div>
