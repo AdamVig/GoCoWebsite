@@ -111,6 +111,8 @@ main {
       background-color: #58F5A7; }
       main .color-row.banner-row .banner-content .banner-body {
         color: #FFF; }
+    main .color-row.logs-row {
+      background-color: #F2726D; }
     main .color-row.search-row {
       min-height: 200px;
       height: auto;
@@ -476,3 +478,17 @@ footer {
 .stats-row .column {
   -webkit-animation-delay: 150ms;
   animation-delay: 150ms; }
+
+.logs-row, .color-row.logs-row {
+  min-height: 200px;
+  height: auto;
+  padding-top: 4rem;
+  padding-bottom: 1rem; }
+  .logs-row .logs-list, .color-row.logs-row .logs-list {
+    height: 150px;
+    margin: 0;
+    padding-left: 75px;
+    overflow: scroll;
+    color: #FFF;
+    list-style: none;
+    text-align: left; }

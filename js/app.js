@@ -5,8 +5,8 @@ app.constant('DatabaseConstant', {
   'username': 'ressiblythenahightedgers',
   'password': 'W4LnuQ6uJpkioDRk5Pnvvoms'
 })
-.constant('LogConstant', {
+.constant('LogsConstant', {
   'url': 'https://papertrailapp.com/systems/AdamVigAPI/events',
-  'username': '',
-  'password': ''
+  'apiURL': 'https://papertrailapp.com/api/v1/',
+  'token': 'aDaDyb4E2vu3deKfdo9G'
 });

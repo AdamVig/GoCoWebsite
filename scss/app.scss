@@ -147,6 +147,9 @@ main {
         }
       }
     }
+    &.logs-row {
+      background-color: color(light-red);
+    }
     &.search-row {
       min-height: $color-row-height;
       height: auto;
@@ -206,3 +209,4 @@ footer {
 
 @import 'keyframes';
 @import 'animations';
+@import 'logs-row';

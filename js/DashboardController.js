@@ -1,4 +1,4 @@
-app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout', 'DatabaseFactory', 'DataService', 'StatsService', 'LoginService', 'DatabaseConstant', 'LogConstant', 'NotificationService', function ($filter, $sce, $interval, $timeout, DatabaseFactory, DataService, StatsService, LoginService, DatabaseConstant, LogConstant, NotificationService) {
+app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout', 'DatabaseFactory', 'DataService', 'StatsService', 'LoginService', 'LogsService', 'DatabaseConstant', 'LogsConstant', 'NotificationService', function ($filter, $sce, $interval, $timeout, DatabaseFactory, DataService, StatsService, LoginService, LogsService, DatabaseConstant, LogsConstant, NotificationService) {
 
   var dashboard = this;
   dashboard.config = {
@@ -11,7 +11,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
   dashboard.loading = true;
   dashboard.sequenceNumber = null;
   dashboard.db = DatabaseConstant;
-  dashboard.logs = LogConstant;
+  dashboard.logs = LogsConstant;
 
   NotificationService.requestDesktopPermission();
 
@@ -108,6 +108,10 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
         dashboard.sequenceNumber = response.data.update_seq;
         $interval(dashboard.refreshData, dashboard.config.refreshInterval);
       }
+    });
+
+    LogsService.getLogs().then(function (response) {
+      dashboard.logs = response.data.events.reverse();
     });
   }, 1000);
 }]);

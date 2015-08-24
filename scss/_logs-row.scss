@@ -1,0 +1,15 @@
+.logs-row, .color-row.logs-row {
+  min-height: $color-row-height;
+  height: auto;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  .logs-list {
+    height: $color-row-height - 50px;
+    margin: 0;
+    padding-left: 75px;
+    overflow: scroll;
+    color: color(white);
+    list-style: none;
+    text-align: left;
+  }
+}

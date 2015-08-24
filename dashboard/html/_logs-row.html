@@ -1,0 +1,9 @@
+<div class="logs-row color-row">
+  <h1>Logs</h1>
+  <ul class="logs-list">
+    <li class="logs-item"
+        ng-repeat="logItem in dashboard.logs">
+      {{logItem.display_received_at}} {{logItem.message}}
+    </li>
+  </ul>
+</div>
