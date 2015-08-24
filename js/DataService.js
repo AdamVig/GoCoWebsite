@@ -19,6 +19,7 @@ app.service('DataService', ['$filter', function ($filter) {
    */
   this.processAllUsers = function (allUsers) {
 
+    allUsers = removeInactiveUsers(allUsers);
     allUsers = getUserNames(allUsers);
     allUsers = removeDatabaseProperties(allUsers);
 
@@ -122,6 +123,14 @@ app.service('DataService', ['$filter', function ($filter) {
       delete user._rev;
       return user;
     });
+  }
+
+  /**
+   * Remove inactive users from all users
+   * @param {array} allUsers Contains user docs
+   */
+  function removeInactiveUsers(allUsers) {
+    return allUsers.filter(function (user) { return user.active; });
   }
 
   /**
