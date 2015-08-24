@@ -35,6 +35,19 @@ header {
   header .goco-logo {
     height: 155px;
     margin: 2rem; }
+  header .notifications-toggle {
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+    margin-right: 10px;
+    float: right;
+    background-repeat: no-repeat;
+    transition: margin-right 0.5s; }
+    header .notifications-toggle.notifications-on {
+      margin-right: 15px;
+      background-image: url("/img/dashboard/volume-on.svg"); }
+    header .notifications-toggle.notifications-off {
+      background-image: url("/img/dashboard/volume-off.svg"); }
 
 main {
   text-align: center; }
@@ -143,17 +156,6 @@ footer {
     color: #eee; }
   footer .database-link:hover {
     color: #F2A42C; }
-  footer .notifications-toggle {
-    width: 30px;
-    height: 30px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    background-repeat: no-repeat; }
-    footer .notifications-toggle.notifications-on {
-      background-image: url("/img/dashboard/volume-on.svg"); }
-    footer .notifications-toggle.notifications-off {
-      background-image: url("/img/dashboard/volume-off.svg"); }
 
 .animated, .login-content, .login-error, .users-count,
 .banner-content, .stats-row .column, .user-changed, .loading-spinner {

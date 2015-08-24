@@ -59,6 +59,22 @@ header {
     height: 155px;
     margin: 2rem;
   }
+  .notifications-toggle {
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+    margin-right: 10px;
+    float: right;
+    background-repeat: no-repeat;
+    transition: margin-right 0.5s;
+    &.notifications-on {
+      margin-right: 15px;
+      background-image: url($volume-on-icon);
+    }
+    &.notifications-off {
+      background-image: url($volume-off-icon);
+    }
+  }
 }
 main {
   text-align: center;
@@ -204,20 +220,6 @@ footer {
   }
   .database-link:hover {
     color: $meal-points-orange;
-  }
-  .notifications-toggle {
-    width: 30px;
-    height: 30px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    background-repeat: no-repeat;
-    &.notifications-on {
-      background-image: url($volume-on-icon);
-    }
-    &.notifications-off {
-      background-image: url($volume-off-icon);
-    }
   }
 }
 
