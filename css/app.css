@@ -10,7 +10,7 @@ a:hover {
   color: #F2A42C; }
 
 body {
-  background-color: #ddd;
+  background-color: #EEE;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400; }
 
@@ -59,24 +59,24 @@ main {
     position: relative;
     z-index: 2; }
     main .color-row h1, main .color-row h2, main .color-row h3, main .color-row h4, main .color-row h5, main .color-row h6 {
-      color: #eee; }
+      color: #FFF; }
     main .color-row.login-row {
       background-color: #F2A42C;
       height: 70vh; }
       main .color-row.login-row .login-content {
         padding-top: 4rem; }
       main .color-row.login-row .login-error {
-        color: red; }
+        color: #A51914; }
       main .color-row.login-row .password-field {
         height: 3rem;
-        border-color: #eee;
+        border-color: #FFF;
         border-radius: 0; }
       main .color-row.login-row .submit-button {
         margin-left: auto;
         margin-right: auto;
         display: block;
-        color: #eee;
-        border-color: #eee; }
+        color: #FFF;
+        border-color: #FFF; }
     main .color-row.loading-row {
       background-color: #F2A42C;
       height: 70vh; }
@@ -87,7 +87,7 @@ main {
         height: 50px;
         margin-left: auto;
         margin-right: auto;
-        background-color: #eee; }
+        background-color: #FFF; }
     main .color-row.users-row {
       background-color: #F2A42C; }
       main .color-row.users-row .users-count {
@@ -108,13 +108,13 @@ main {
         main .color-row.stats-row .column:not(:last-child) > h2 {
           margin-bottom: 0; } }
     main .color-row.banner-row {
-      background-color: #33cd5f; }
+      background-color: #58F5A7; }
       main .color-row.banner-row .banner-content .banner-body {
-        color: #eee; }
+        color: #FFF; }
     main .color-row.search-row {
       min-height: 200px;
       height: auto;
-      background-color: #33cd5f;
+      background-color: #58F5A7;
       padding-top: 4rem;
       padding-bottom: 1rem; }
       main .color-row.search-row .search-box {
@@ -131,8 +131,8 @@ main {
         margin-left: auto;
         margin-right: auto;
         padding: 5px;
-        background-color: #fff;
-        border: 1px solid #D1D1D1;
+        background-color: #FFF;
+        border: 1px solid #838C8D;
         list-style: none;
         text-align: left; }
   main .users-lists {
@@ -153,7 +153,7 @@ footer {
   text-align: center;
   background-color: #014983; }
   footer .footer-link {
-    color: #eee; }
+    color: #FFF; }
   footer .footer-link:hover {
     color: #F2A42C; }
 

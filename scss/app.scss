@@ -10,11 +10,11 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: $meal-points-orange;
+  color: color(orange);
 }
 
 body {
-  background-color: $page-color;
+  background-color: color(light-gray);
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
@@ -34,7 +34,7 @@ footer {
 }
 header {
   height: $color-row-height;
-  background-color: $gordon-blue;
+  background-color: color(blue);
   text-align: center;
   .goco-logo {
     height: 155px;
@@ -68,32 +68,32 @@ main {
     position: relative;
     z-index: $color-row-layer;
     h1, h2, h3, h4, h5, h6 {
-      color: $title-color;
+      color: color(white);
     }
     &.login-row {
-      background-color: $meal-points-orange;
+      background-color: color(orange);
       height: $login-row-height;
       .login-content {
         padding-top: 4rem;
       }
       .login-error {
-        color: $error-red;
+        color: color(dark-red);
       }
       .password-field {
         height: 3rem;
-        border-color: $title-color;
+        border-color: color(white);
         border-radius: 0;
       }
       .submit-button {
         margin-left: auto;
         margin-right: auto;
         display: block;
-        color: $title-color;
-        border-color: $title-color;
+        color: color(white);
+        border-color: color(white);
       }
     }
     &.loading-row {
-      background-color: $meal-points-orange;
+      background-color: color(orange);
       height: $loading-row-height;
       .loading-content {
         padding-top: 4rem;
@@ -103,11 +103,11 @@ main {
         height: 50px;
         margin-left: auto;
         margin-right: auto;
-        background-color: $title-color;
+        background-color: color(white);
       }
     }
     &.users-row {
-      background-color: $meal-points-orange;
+      background-color: color(orange);
       .users-count {
         @extend .vertical-align;
         cursor: pointer;
@@ -115,7 +115,7 @@ main {
     }
     &.stats-row {
       height: 350px;
-      background-color: $stats-color;
+      background-color: color(purple);
       padding-top: 15px;
       > .container {
         @extend .vertical-align;
@@ -139,18 +139,18 @@ main {
       }
     }
     &.banner-row {
-      background-color: $banner-green;
+      background-color: color(mint-green);
       .banner-content {
         @extend .vertical-align;
         .banner-body {
-          color: $title-color;
+          color: color(white);
         }
       }
     }
     &.search-row {
       min-height: $color-row-height;
       height: auto;
-      background-color: $banner-green;
+      background-color: color(mint-green);
       padding-top: 4rem;
       padding-bottom: 1rem;
       .search-box {
@@ -168,8 +168,8 @@ main {
         margin-left: auto;
         margin-right: auto;
         padding: 5px;
-        background-color: #fff;
-        border: 1px solid #D1D1D1;
+        background-color: color(white);
+        border: 1px solid color(muted-gray);
         list-style: none;
         text-align: left;
       }
@@ -195,12 +195,12 @@ footer {
   height: $footer-height;
   padding-top: 3rem;
   text-align: center;
-  background-color: $gordon-blue;
+  background-color: color(blue);
   .footer-link {
-    color: $title-color;
+    color: color(white);
   }
   .footer-link:hover {
-    color: $meal-points-orange;
+    color: color(orange);
   }
 }
 

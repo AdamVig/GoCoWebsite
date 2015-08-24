@@ -380,7 +380,7 @@
   }
 }
 
-@include flashBackground($meal-points-orange, 'flashBackgroundOrange');
+@include flashBackground(color(orange), 'flashBackgroundOrange');
 
 @-webkit-keyframes rotatePlane {
   0% {
