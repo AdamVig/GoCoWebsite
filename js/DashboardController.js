@@ -79,6 +79,8 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
         }
       }
     });
+
+    dashboard.getLogs();
   };
 
   // Wait for page animations to finish, then load data
@@ -110,8 +112,13 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
       }
     });
 
+    dashboard.getLogs();
+
+  }, 1000);
+
+  dashboard.getLogs = function () {
     LogsService.getLogs().then(function (response) {
       dashboard.logs = response.data.events.reverse();
     });
-  }, 1000);
+  };
 }]);
