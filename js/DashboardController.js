@@ -1,4 +1,4 @@
-app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout', 'DatabaseFactory', 'DataService', 'StatsService', 'LoginService', 'DatabaseConstant', 'NotificationService', function ($filter, $sce, $interval, $timeout, DatabaseFactory, DataService, StatsService, LoginService, DatabaseConstant, NotificationService) {
+app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout', 'DatabaseFactory', 'DataService', 'StatsService', 'LoginService', 'DatabaseConstant', 'LogConstant', 'NotificationService', function ($filter, $sce, $interval, $timeout, DatabaseFactory, DataService, StatsService, LoginService, DatabaseConstant, LogConstant, NotificationService) {
 
   var dashboard = this;
   dashboard.config = {
@@ -11,6 +11,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
   dashboard.loading = true;
   dashboard.sequenceNumber = null;
   dashboard.db = DatabaseConstant;
+  dashboard.logs = LogConstant;
 
   NotificationService.requestDesktopPermission();
 

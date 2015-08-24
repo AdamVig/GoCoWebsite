@@ -149,12 +149,12 @@ main {
 
 footer {
   height: 75px;
-  padding-top: 1rem;
+  padding-top: 3rem;
   text-align: center;
   background-color: #014983; }
-  footer .database-link {
+  footer .footer-link {
     color: #eee; }
-  footer .database-link:hover {
+  footer .footer-link:hover {
     color: #F2A42C; }
 
 .animated, .login-content, .login-error, .users-count,

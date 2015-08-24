@@ -212,13 +212,13 @@ main {
 }
 footer {
   height: $footer-height;
-  padding-top: 1rem;
+  padding-top: 3rem;
   text-align: center;
   background-color: $gordon-blue;
-  .database-link {
+  .footer-link {
     color: $title-color;
   }
-  .database-link:hover {
+  .footer-link:hover {
     color: $meal-points-orange;
   }
 }

@@ -4,4 +4,9 @@ app.constant('DatabaseConstant', {
   'url': 'https://adamvig.cloudant.com',
   'username': 'ressiblythenahightedgers',
   'password': 'W4LnuQ6uJpkioDRk5Pnvvoms'
+})
+.constant('LogConstant', {
+  'url': 'https://papertrailapp.com/systems/AdamVigAPI/events',
+  'username': '',
+  'password': ''
 });
