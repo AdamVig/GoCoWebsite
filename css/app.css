@@ -489,6 +489,10 @@ header {
     color: #FFF;
     list-style: none;
     text-align: left; }
+  .logs-row .logs-list::-webkit-scrollbar, .color-row.logs-row .logs-list::-webkit-scrollbar {
+    background-color: transparent; }
+  .logs-row .logs-list::-webkit-scrollbar-thumb, .color-row.logs-row .logs-list::-webkit-scrollbar-thumb {
+    background-color: #FFBB00; }
 
 footer {
   height: 75px;

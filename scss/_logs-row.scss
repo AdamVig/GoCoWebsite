@@ -3,6 +3,7 @@
   height: auto;
   padding-top: 4rem;
   padding-bottom: 1rem;
+  background-color: color(light-red);
   .logs-list {
     height: $color-row-height - 50px;
     margin: 0;
@@ -12,5 +13,11 @@
     color: color(white);
     list-style: none;
     text-align: left;
+  }
+  .logs-list::-webkit-scrollbar {
+    background-color: transparent;
+  }
+  .logs-list::-webkit-scrollbar-thumb {
+    background-color: color(dark-yellow);
   }
 }
