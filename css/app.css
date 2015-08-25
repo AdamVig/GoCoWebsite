@@ -1,164 +1,3 @@
-.vertical-align, main .color-row.users-row .users-count, main .color-row.stats-row > .container, main .color-row.banner-row .banner-content {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%); }
-
-a {
-  text-decoration: none; }
-
-a:hover {
-  color: #F2A42C; }
-
-body {
-  background-color: #EEE;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-transform: uppercase;
-  font-weight: 700; }
-
-header,
-footer {
-  position: relative;
-  z-index: 3; }
-
-header {
-  height: 200px;
-  background-color: #014983;
-  text-align: center; }
-  header .goco-logo {
-    height: 155px;
-    margin: 2rem; }
-  header .notifications-toggle {
-    width: 30px;
-    height: 30px;
-    margin-top: 15px;
-    margin-right: 10px;
-    float: right;
-    background-repeat: no-repeat;
-    transition: margin-right 0.5s; }
-    header .notifications-toggle.notifications-on {
-      margin-right: 15px;
-      background-image: url("/img/dashboard/volume-on.svg"); }
-    header .notifications-toggle.notifications-off {
-      background-image: url("/img/dashboard/volume-off.svg"); }
-
-main {
-  text-align: center; }
-  main .banner-link:hover {
-    display: block;
-    opacity: 0.75; }
-  main .color-row {
-    height: 200px;
-    position: relative;
-    z-index: 2; }
-    main .color-row h1, main .color-row h2, main .color-row h3, main .color-row h4, main .color-row h5, main .color-row h6 {
-      color: #FFF; }
-    main .color-row.login-row {
-      background-color: #F2A42C;
-      height: 70vh; }
-      main .color-row.login-row .login-content {
-        padding-top: 4rem; }
-      main .color-row.login-row .login-error {
-        color: #A51914; }
-      main .color-row.login-row .password-field {
-        height: 3rem;
-        border-color: #FFF;
-        border-radius: 0; }
-      main .color-row.login-row .submit-button {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        color: #FFF;
-        border-color: #FFF; }
-    main .color-row.loading-row {
-      background-color: #F2A42C;
-      height: 70vh; }
-      main .color-row.loading-row .loading-content {
-        padding-top: 4rem; }
-      main .color-row.loading-row .loading-spinner {
-        width: 50px;
-        height: 50px;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: #FFF; }
-    main .color-row.users-row {
-      background-color: #F2A42C; }
-      main .color-row.users-row .users-count {
-        cursor: pointer; }
-    main .color-row.stats-row {
-      height: 350px;
-      background-color: #9650BF;
-      padding-top: 15px; }
-      main .color-row.stats-row h4 {
-        margin-bottom: 0; }
-      main .color-row.stats-row .column:not(:last-child) > h2 {
-        margin-bottom: 4rem; }
-    @media (min-width: 580px) {
-      main .color-row.stats-row {
-        height: 200px; }
-        main .color-row.stats-row h4 {
-          margin-bottom: 1rem; }
-        main .color-row.stats-row .column:not(:last-child) > h2 {
-          margin-bottom: 0; } }
-    main .color-row.banner-row {
-      background-color: #58F5A7; }
-      main .color-row.banner-row .banner-content .banner-body {
-        color: #FFF; }
-    main .color-row.logs-row {
-      background-color: #F2726D; }
-    main .color-row.search-row {
-      min-height: 200px;
-      height: auto;
-      background-color: #58F5A7;
-      padding-top: 4rem;
-      padding-bottom: 1rem; }
-      main .color-row.search-row .search-box {
-        width: 300px;
-        border-radius: 0;
-        position: relative;
-        z-index: 3; }
-      main .color-row.search-row .search-dropdown {
-        max-height: 250px;
-        width: 310px;
-        position: relative;
-        z-index: 2;
-        margin-top: -15px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 5px;
-        background-color: #FFF;
-        border: 1px solid #838C8D;
-        list-style: none;
-        text-align: left; }
-  main .users-lists {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    position: relative;
-    z-index: 1; }
-    main .users-lists ul {
-      list-style: none; }
-    main .users-lists .user-link {
-      padding: 0.5rem; }
-    main .users-lists.row {
-      margin-bottom: 0; }
-
-footer {
-  height: 75px;
-  padding-top: 3rem;
-  text-align: center;
-  background-color: #014983; }
-  footer .footer-link {
-    color: #FFF; }
-  footer .footer-link:hover {
-    color: #F2A42C; }
-
 .animated, .login-content, .login-error, .users-count,
 .banner-content, .stats-row .column, .user-changed, .loading-spinner {
   -webkit-animation-duration: 1s;
@@ -479,11 +318,168 @@ footer {
   -webkit-animation-delay: 150ms;
   animation-delay: 150ms; }
 
+.vertical-align, .users-row .users-count, .stats-row > .container, .banner-row .banner-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  color: #F2A42C; }
+
+body {
+  background-color: #EEE;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  font-weight: 700; }
+
+header,
+footer {
+  position: relative;
+  z-index: 3; }
+
+main {
+  text-align: center; }
+  main .banner-link:hover {
+    display: block;
+    opacity: 0.75; }
+  main .color-row {
+    height: 200px;
+    position: relative;
+    z-index: 2; }
+    main .color-row h1, main .color-row h2, main .color-row h3, main .color-row h4, main .color-row h5, main .color-row h6 {
+      color: #FFF; }
+
+header {
+  height: 200px;
+  background-color: #014983;
+  text-align: center; }
+  header .goco-logo {
+    height: 155px;
+    margin: 2rem; }
+  header .notifications-toggle {
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+    margin-right: 10px;
+    float: right;
+    background-repeat: no-repeat;
+    transition: margin-right 0.5s; }
+    header .notifications-toggle.notifications-on {
+      margin-right: 15px;
+      background-image: url("/img/dashboard/volume-on.svg"); }
+    header .notifications-toggle.notifications-off {
+      background-image: url("/img/dashboard/volume-off.svg"); }
+
+.loading-row {
+  background-color: #F2A42C;
+  height: 70vh; }
+  .loading-row .loading-content {
+    padding-top: 4rem; }
+  .loading-row .loading-spinner {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFF; }
+
+.login-row {
+  background-color: #F2A42C;
+  height: 70vh; }
+  .login-row .login-content {
+    padding-top: 4rem; }
+  .login-row .login-error {
+    color: #A51914; }
+  .login-row .password-field {
+    height: 3rem;
+    border-color: #FFF;
+    border-radius: 0; }
+  .login-row .submit-button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    color: #FFF;
+    border-color: #FFF; }
+
+.users-row {
+  background-color: #F2A42C; }
+  .users-row .users-count {
+    cursor: pointer; }
+
+.stats-row {
+  height: 350px;
+  background-color: #9650BF;
+  padding-top: 15px; }
+  .stats-row h4 {
+    margin-bottom: 0; }
+  .stats-row .column:not(:last-child) > h2 {
+    margin-bottom: 4rem; }
+
+@media (min-width: 580px) {
+  .stats-row {
+    height: 200px; }
+    .stats-row h4 {
+      margin-bottom: 1rem; }
+    .stats-row .column:not(:last-child) > h2 {
+      margin-bottom: 0; } }
+.banner-row {
+  background-color: #58F5A7; }
+  .banner-row .banner-content .banner-body {
+    color: #FFF; }
+
+.search-row {
+  min-height: 200px;
+  height: auto;
+  background-color: #58F5A7;
+  padding-top: 4rem;
+  padding-bottom: 1rem; }
+  .search-row .search-box {
+    width: 300px;
+    border-radius: 0;
+    position: relative;
+    z-index: 3; }
+  .search-row .search-dropdown {
+    max-height: 250px;
+    width: 310px;
+    position: relative;
+    z-index: 2;
+    margin-top: -15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    background-color: #FFF;
+    border: 1px solid #838C8D;
+    list-style: none;
+    text-align: left; }
+
+.users-lists {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+  z-index: 1; }
+  .users-lists ul {
+    list-style: none; }
+  .users-lists .user-link {
+    padding: 0.5rem; }
+  .users-lists.row {
+    margin-bottom: 0; }
+
 .logs-row, .color-row.logs-row {
   min-height: 200px;
   height: auto;
   padding-top: 4rem;
-  padding-bottom: 1rem; }
+  padding-bottom: 1rem;
+  background-color: #F2726D; }
   .logs-row .logs-list, .color-row.logs-row .logs-list {
     height: 150px;
     margin: 0;
@@ -493,3 +489,13 @@ footer {
     color: #FFF;
     list-style: none;
     text-align: left; }
+
+footer {
+  height: 75px;
+  padding-top: 3rem;
+  text-align: center;
+  background-color: #014983; }
+  footer .footer-link {
+    color: #FFF; }
+  footer .footer-link:hover {
+    color: #F2A42C; }

@@ -1,5 +1,7 @@
 @import 'variables';
 @import 'functions';
+@import 'keyframes';
+@import 'animations';
 
 .vertical-align {
   position: relative;
@@ -32,31 +34,6 @@ footer {
   position: relative;
   z-index: $top-layer;
 }
-header {
-  height: $color-row-height;
-  background-color: color(blue);
-  text-align: center;
-  .goco-logo {
-    height: 155px;
-    margin: 2rem;
-  }
-  .notifications-toggle {
-    width: 30px;
-    height: 30px;
-    margin-top: 15px;
-    margin-right: 10px;
-    float: right;
-    background-repeat: no-repeat;
-    transition: margin-right 0.5s;
-    &.notifications-on {
-      margin-right: 15px;
-      background-image: url($volume-on-icon);
-    }
-    &.notifications-off {
-      background-image: url($volume-off-icon);
-    }
-  }
-}
 main {
   text-align: center;
   .banner-link:hover {
@@ -70,143 +47,17 @@ main {
     h1, h2, h3, h4, h5, h6 {
       color: color(white);
     }
-    &.login-row {
-      background-color: color(orange);
-      height: $login-row-height;
-      .login-content {
-        padding-top: 4rem;
-      }
-      .login-error {
-        color: color(dark-red);
-      }
-      .password-field {
-        height: 3rem;
-        border-color: color(white);
-        border-radius: 0;
-      }
-      .submit-button {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        color: color(white);
-        border-color: color(white);
-      }
-    }
-    &.loading-row {
-      background-color: color(orange);
-      height: $loading-row-height;
-      .loading-content {
-        padding-top: 4rem;
-      }
-      .loading-spinner {
-        width: 50px;
-        height: 50px;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: color(white);
-      }
-    }
-    &.users-row {
-      background-color: color(orange);
-      .users-count {
-        @extend .vertical-align;
-        cursor: pointer;
-      }
-    }
-    &.stats-row {
-      height: 350px;
-      background-color: color(purple);
-      padding-top: 15px;
-      > .container {
-        @extend .vertical-align;
-      }
-      h4 {
-        margin-bottom: 0;
-      }
-      .column:not(:last-child) > h2 {
-        margin-bottom: 4rem;
-      }
-    }
-    @media (min-width: 580px) {
-      &.stats-row {
-        height: $color-row-height;
-        h4 {
-          margin-bottom: 1rem;
-        }
-        .column:not(:last-child) > h2 {
-          margin-bottom: 0;
-        }
-      }
-    }
-    &.banner-row {
-      background-color: color(mint-green);
-      .banner-content {
-        @extend .vertical-align;
-        .banner-body {
-          color: color(white);
-        }
-      }
-    }
-    &.logs-row {
-      background-color: color(light-red);
-    }
-    &.search-row {
-      min-height: $color-row-height;
-      height: auto;
-      background-color: color(mint-green);
-      padding-top: 4rem;
-      padding-bottom: 1rem;
-      .search-box {
-        width: 300px;
-        border-radius: 0;
-        position: relative;
-        z-index: $top-layer;
-      }
-      .search-dropdown {
-        max-height: 250px;
-        width: 310px;
-        position: relative;
-        z-index: $color-row-layer;
-        margin-top: -15px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 5px;
-        background-color: color(white);
-        border: 1px solid color(muted-gray);
-        list-style: none;
-        text-align: left;
-      }
-    }
   }
-  .users-lists {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    position: relative;
-    z-index: $users-lists-layer;
-    ul {
-      list-style: none;
-    }
-    .user-link {
-      padding: 0.5rem;
-    }
-    &.row {
-      margin-bottom: 0;
-    }
-  }
-}
-footer {
-  height: $footer-height;
-  padding-top: 3rem;
-  text-align: center;
-  background-color: color(blue);
-  .footer-link {
-    color: color(white);
-  }
-  .footer-link:hover {
-    color: color(orange);
-  }
+
 }
 
-@import 'keyframes';
-@import 'animations';
+@import 'header';
+@import 'loading-row';
+@import 'login-row';
+@import 'users-row';
+@import 'stats-row';
+@import 'banner-row';
+@import 'search-row';
+@import 'users-lists';
 @import 'logs-row';
+@import 'footer';

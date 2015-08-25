@@ -1,0 +1,15 @@
+.users-lists {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+  z-index: $users-lists-layer;
+  ul {
+    list-style: none;
+  }
+  .user-link {
+    padding: 0.5rem;
+  }
+  &.row {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,25 @@
+.stats-row {
+  height: 350px;
+  background-color: color(purple);
+  padding-top: 15px;
+  > .container {
+    @extend .vertical-align;
+  }
+  h4 {
+    margin-bottom: 0;
+  }
+  .column:not(:last-child) > h2 {
+    margin-bottom: 4rem;
+  }
+}
+@media (min-width: 580px) {
+  .stats-row {
+    height: $color-row-height;
+    h4 {
+      margin-bottom: 1rem;
+    }
+    .column:not(:last-child) > h2 {
+      margin-bottom: 0;
+    }
+  }
+}

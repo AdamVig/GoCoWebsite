@@ -1,0 +1,9 @@
+.banner-row {
+  background-color: color(mint-green);
+  .banner-content {
+    @extend .vertical-align;
+    .banner-body {
+      color: color(white);
+    }
+  }
+}
