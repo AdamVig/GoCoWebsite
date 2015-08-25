@@ -11,7 +11,7 @@ app.controller('DashboardController', ['$filter', '$sce', '$interval', '$timeout
   dashboard.loading = true;
   dashboard.sequenceNumber = null;
   dashboard.db = DatabaseConstant;
-  dashboard.logs = LogsConstant;
+  dashboard.logsInfo = LogsConstant;
 
   NotificationService.requestDesktopPermission();
 
