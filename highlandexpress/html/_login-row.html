@@ -1,0 +1,22 @@
+<div class="login-row color-row"
+  ng-show="!dashboard.auth.authenticated">
+  <div class="login-content">
+    <h1>Login</h1>
+    <h2 class="login-error"
+      ng-if="dashboard.auth.wrong">
+      Wrong password!
+    </h2>
+    <form>
+      <input type="password"
+        autofocus
+        class="password-field"
+        ng-class="{'input-error': dashboard.auth.failure === true}"
+        ng-model="dashboard.auth.userAttempt">
+      <button type="submit"
+        class="submit-button"
+        ng-click="dashboard.login()">
+        Go
+      </button>
+    </form>
+  </div>
+</div>
