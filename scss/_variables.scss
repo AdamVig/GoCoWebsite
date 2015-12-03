@@ -1,6 +1,8 @@
 $colors: (
   white: #FFF,
+  black: #000,
   light-gray: #EEE,
+  mid-gray: #DDD,
   muted-gray: #838C8D,
   blue: #014983,
   orange: #F2A42C,
@@ -8,9 +10,13 @@ $colors: (
   mint-green: #58F5A7,
   light-red: #F2726D,
   dark-green: #24A552,
-  dark-red: #A51914,
+  dark-red: #A52D28,
   dark-yellow: #FFBB00,
-  light-teal: #46DBD3
+  light-teal: #46DBD3,
+  dark-aquamarine: #35A593,
+  light-aquamarine: #13CAAD,
+  light-purple: #BF87BF,
+  light-yellow: #FFE68E
 );
 
 $top-layer: 3;
