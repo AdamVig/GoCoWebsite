@@ -90,7 +90,7 @@ app.service('DataService', ['$filter', function ($filter) {
   function removeNonUserDocs (allDocs) {
     return allDocs.filter(function (doc) {
       // Filter out any docs without a period ('.') in their _id
-      return doc._id.indexOf('.') > -1;
+      return _.contains(doc._id, '.');
     });
   }
 
