@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dashboard | GoCo Student</title>
+  <title>Highland Express | GoCo Student</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,17 +21,17 @@
   <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@adamvig">
-  <meta name="twitter:title" content="Dashboard | GoCo Student">
-  <meta name="twitter:description" content="A dashboard for GoCo Student, the must-have app for Gordon College students.">
+  <meta name="twitter:title" content="Highland Express | GoCo Student">
+  <meta name="twitter:description" content="A dashboard for the Highland Express extension of GoCo Student, the must-have app for Gordon College students.">
   <meta name="twitter:creator" content="@adamvig">
   <meta name="twitter:image" content=" http://gocostudent.adamvig.com/img/favicon-500.png">
 
   <!-- Open Graph data -->
-  <meta property="og:title" content="Dashboard | GoCo Student">
+  <meta property="og:title" content="Highland Express | GoCo Student">
   <meta property="og:type" content="article">
   <meta property="og:url" content=" http://gocostudent.adamvig.com">
   <meta property="og:image" content=" http://gocostudent.adamvig.com/img/favicon-250.png">
-  <meta property="og:description" content="A dashboard for GoCo Student, the must-have app for Gordon College students.">
+  <meta property="og:description" content="A dashboard for the Highland Express extension of GoCo Student, the must-have app for Gordon College students.">
   <meta property="og:site_name" content="GoCo Student">
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -39,30 +39,19 @@
   <link rel="stylesheet" href="/css/skeleton.css">
   <link rel="stylesheet" href="/css/app.css">
 </head>
-<body ng-app="gocostudent-dashboard" ng-controller="DashboardController as dashboard">
-  <header ng-class="{'changed': dashboard.changed}">
+<body ng-app="gocostudent-dashboard" ng-controller="HighlandController as highland">
+  <header>
     <img class="goco-logo" src="/img/logo.svg" alt="GoCo Student">
-    <div class="notifications-toggle"
-      ng-class="dashboard.config.notifySound ? 'notifications-on' : 'notifications-off'"
-      ng-click="dashboard.toggleSound()"></div>
   </header>
+  <div class="highland-header-bar">
+    <img class="highland-logo" src="/img/highland-logo.svg" alt="Highland Express">
+  </div>
   <main>
     <ng-include src="'html/_login-row.html'"></ng-include>
-    <ng-include src="'html/_loading-row.html'"></ng-include>
-    <div ng-if="dashboard.auth.authenticated && !dashboard.loading">
-      <ng-include src="'html/_users-row.html'"></ng-include>
-      <ng-include src="'html/_banner-row.html'"></ng-include>
-      <ng-include src="'html/_stats-row.html'"></ng-include>
-      <ng-include src="'html/_users-lists.html'"></ng-include>
-      <ng-include src="'html/_logs-row.html'"></ng-include>
-      <ng-include src="'html/_search-row.html'"></ng-include>
-    </div>
   </main>
   <footer>
     <div class="footer-content">
-      <a class="footer-link" ng-href="{{dashboard.db.url}}/dashboard.html">Database Dashboard</a>
-      <br>
-      <a class="footer-link" ng-href="{{dashboard.logsInfo.url}}">API Logs</a>
+      Email <a href="mailto:AdamVigneaux@gmail.com">AdamVigneaux@gmail.com</a> for help.
     </div>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
