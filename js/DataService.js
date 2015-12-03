@@ -102,12 +102,16 @@ app.service('DataService', ['$filter', function ($filter) {
   function getUserNames(allUsers) {
     return allUsers.map(function (user) {
       var nameSplit = user._id.split('.');
-      user.name = {
-        "first": capitalizeFirstLetter(nameSplit[0]),
-        "last": capitalizeFirstLetter(nameSplit[1]),
-        "id": user._id
-      };
-      user.name.full = user.name.first + " " + user.name.last;
+
+      // If the doc _id has a first and last name
+      if (nameSplit.length == 2) {
+        user.name = {
+          "first": capitalizeFirstLetter(nameSplit[0]),
+          "last": capitalizeFirstLetter(nameSplit[1]),
+          "id": user._id
+        };
+        user.name.full = user.name.first + " " + user.name.last;
+      }
 
       return user;
     });
