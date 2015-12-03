@@ -417,17 +417,20 @@ header {
     cursor: pointer; }
 
 .stats-row {
-  height: 350px;
+  height: 300px;
   background-color: #9650BF;
   padding-top: 15px; }
-  .stats-row h4 {
+  .stats-row h3,
+  .stats-row h5 {
     margin-bottom: 0; }
+  .stats-row h1 {
+    margin-bottom: -30px; }
   .stats-row .column:not(:last-child) > h2 {
     margin-bottom: 4rem; }
 
 @media (min-width: 580px) {
   .stats-row {
-    height: 200px; }
+    height: 300px; }
     .stats-row h4 {
       margin-bottom: 1rem; }
     .stats-row .column:not(:last-child) > h2 {
