@@ -112,9 +112,11 @@ app.service('DataService', ['$filter', function ($filter) {
           "id": user._id
         };
         user.name.full = user.name.first + " " + user.name.last;
+        return user;
+      } else {
+        throw "Error in getUserNames(): " +
+              "Cannot get user name from document '" + user._id + "'.";
       }
-
-      return user;
     });
   }
 
