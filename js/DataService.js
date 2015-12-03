@@ -37,6 +37,7 @@ app.service('DataService', ['$filter', function ($filter) {
 
     // Process changed docs
     changes = extractDocs(changes);
+    changes = removeNonUserDocs(changes);
     changes = getUserNames(changes);
     changes = removeDatabaseProperties(changes);
 
