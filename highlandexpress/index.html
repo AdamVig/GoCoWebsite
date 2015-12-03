@@ -49,6 +49,10 @@
   <main>
     <ng-include src="'html/_login-row.html'"></ng-include>
     <ng-include src="'html/_loading-row.html'"></ng-include>
+    <div ng-if="highland.auth.authenticated && !highland.loading">
+      <ng-include src="'html/_schedule.html'"></ng-include>
+      <ng-include src="'html/_announcement.html'"></ng-include>
+    </div>
   </main>
   <footer>
     <div class="footer-content">
