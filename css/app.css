@@ -318,7 +318,7 @@
   -webkit-animation-delay: 150ms;
   animation-delay: 150ms; }
 
-.vertical-align, .users-row .users-count, .stats-row > .container, .banner-row .banner-content {
+.vertical-align, .users-row .users-count, .stats-row > .container, .banner-row .banner-content, .highland-express .highland-header-bar .highland-title {
   position: relative;
   top: 50%;
   transform: translateY(-50%); }
@@ -506,3 +506,11 @@ footer {
     color: #FFF; }
   footer .footer-link:hover {
     color: #F2A42C; }
+
+.highland-express .highland-header-bar {
+  height: 14rem;
+  background-color: #24A552;
+  text-align: center; }
+  .highland-express .highland-header-bar .highland-title {
+    margin-bottom: 0;
+    color: #FFF; }

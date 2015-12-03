@@ -1,3 +1,15 @@
+$subheader-height: 14rem;
+$highland-color: color(dark-green);
+
 .highland-express {
-  
+  .highland-header-bar {
+    height: $subheader-height;
+    background-color: $highland-color;
+    text-align: center;
+    .highland-title {
+      margin-bottom: 0;
+      @extend .vertical-align;
+      color: color(white);
+    }
+  }
 }
