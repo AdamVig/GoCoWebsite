@@ -15,4 +15,14 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
   highland.login = function () {
     highland.auth = LoginService.login(highland.auth, pageName);
   };
+
+  // Refresh all data
+  highland.refresh = function () {
+    HighlandFactory.getData().then(function () {
+      highland.data = HighlandFactory.data;
+      highland.loading = false;
+    });
+  };
+
+  highland.refresh();
 }]);
