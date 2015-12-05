@@ -34,15 +34,5 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
     }
   };
 
-  // Change to previous schedule day
-  highland.previousSchedule = function () {
-    index = highland.data.days.indexOf(highland.data.day);
-    if (index - 1 >= 0) {
-      highland.data.day =  highland.data.days[index - 1];
-    } else {
-      highland.data.day = highland.data.days[highland.data.days.length - 1];
-    }
-  };
-
   highland.refresh();
 }]);
