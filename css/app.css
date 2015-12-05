@@ -1,5 +1,5 @@
 .animated, .login-content, .login-error, .users-count,
-.banner-content, .stats-row .column, .user-changed, .loading-spinner {
+.banner-content, .stats-row .column, .user-changed, .loading-spinner, .highland-express .highland-controls .highland-button-loader {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
@@ -16,7 +16,7 @@
   animation-duration: 2s; }
 
 .animated.infinite, .infinite.login-content, .infinite.login-error, .infinite.users-count,
-.infinite.banner-content, .stats-row .infinite.column, .stats-row .column.loading-spinner, .infinite.user-changed, .loading-spinner {
+.infinite.banner-content, .stats-row .infinite.column, .stats-row .column.loading-spinner, .infinite.user-changed, .loading-spinner, .highland-express .highland-controls .highland-button-loader {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite; }
 
@@ -267,7 +267,7 @@
   100% {
     -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
     transform: perspective(120px) rotateY(180deg) rotateX(180deg); } }
-.rotatePlane, .loading-spinner {
+.rotatePlane, .loading-spinner, .highland-express .highland-controls .highland-button-loader {
   -webkit-animation-name: rotatePlane;
   animation-name: rotatePlane;
   -webkit-animation-timing-function: ease-in-out;
@@ -359,6 +359,13 @@ main {
     z-index: 2; }
     main .color-row h1, main .color-row h2, main .color-row h3, main .color-row h4, main .color-row h5, main .color-row h6 {
       color: #FFF; }
+
+.loading-spinner, .highland-express .highland-controls .highland-button-loader {
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFF; }
 
 header {
   height: 200px;
@@ -508,3 +515,54 @@ footer {
   .highland-express .highland-header-bar .highland-title {
     margin-bottom: 0;
     color: #FFF; }
+.highland-express .highland-controls {
+  margin-top: 2rem; }
+  .highland-express .highland-controls .highland-control-button {
+    border-color: #24A552; }
+  @media (max-width: 500px) {
+    .highland-express .highland-controls .highland-control-button {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; } }
+  .highland-express .highland-controls .highland-control-button:hover {
+    border-color: #838C8D; }
+  .highland-express .highland-controls .highland-button-loader {
+    vertical-align: text-bottom;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 1rem;
+    background-color: #838C8D; }
+.highland-express .highland-schedule {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
+  .highland-express .highland-schedule .header-cell,
+  .highland-express .highland-schedule .header-input,
+  .highland-express .highland-schedule .cell,
+  .highland-express .highland-schedule .cell-input {
+    text-align: center; }
+  .highland-express .highland-schedule .header-cell {
+    max-width: 15rem; }
+    .highland-express .highland-schedule .header-cell .header-input {
+      height: 100%;
+      max-width: 12.5rem;
+      vertical-align: middle;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border: 1px solid #D1D1D1;
+      padding: 6px 10px;
+      /* The 6px vertically centers text on FF, ignored by Webkit */
+      border-radius: 4px;
+      box-shadow: none;
+      background: #FFF; }
+  .highland-express .highland-schedule .cell .cell-input {
+    max-width: 8rem; }
+  @media (max-width: 500px) {
+    .highland-express .highland-schedule .cell {
+      padding-left: 5px;
+      padding-right: 0;
+      padding-top: 10px;
+      padding-bottom: 0; }
+      .highland-express .highland-schedule .cell .cell-input {
+        width: 7rem; } }

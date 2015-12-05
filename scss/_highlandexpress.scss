@@ -12,4 +12,71 @@ $highland-color: color(dark-green);
       color: color(white);
     }
   }
+  .highland-controls {
+    margin-top: 2rem;
+    .highland-control-button {
+      border-color: $highland-color;
+    }
+    @media (max-width: 500px) {
+      .highland-control-button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    .highland-control-button:hover {
+      border-color: color(muted-gray);
+    }
+    .highland-button-loader {
+      @extend .loading-spinner;
+      vertical-align: text-bottom;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 1rem;
+      background-color: color(muted-gray);
+    }
+  }
+  .highland-schedule {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    .header-cell,
+    .header-input,
+    .cell,
+    .cell-input {
+      text-align: center;
+    }
+    .header-cell {
+      max-width: 15rem;
+      .header-input {
+        height: 100%;
+        max-width: 12.5rem;
+        vertical-align: middle;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border: 1px solid #D1D1D1;
+        padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+        border-radius: 4px;
+        box-shadow: none;
+        background: color(white);
+      }
+    }
+    .cell {
+      .cell-input {
+        max-width: 8rem;
+      }
+    }
+    @media (max-width: 500px) {
+      .cell {
+        padding-left: 5px;
+        padding-right: 0;
+        padding-top: 10px;
+        padding-bottom: 0;
+        .cell-input {
+          width: 7rem;
+        }
+      }
+    }
+  }
 }

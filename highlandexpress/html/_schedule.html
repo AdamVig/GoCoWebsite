@@ -1,0 +1,26 @@
+<div class="highland-controls">
+  <button class="highland-control-button"
+    ng-click="highland.save()">
+    <span ng-show="!highland.saving">Save Changes</span>
+    <div ng-show="highland.saving">
+      <div class="highland-button-loader"></div>Saving...
+    </div>
+  </button>
+  <button class="highland-control-button"
+    ng-click="highland.nextSchedule()">Next Schedule</button>
+  <h4 class="highland-schedule-day">
+    {{highland.data.day}} Schedule
+  </h4>
+</div>
+<table class="highland-schedule">
+  <thead class="highland-destinations">
+    <td class="header-cell" ng-repeat="destination in highland.data.schedule[highland.data.day].destinations">
+      <div contenteditable class="header-input">{{destination}}</div>
+    </td>
+  </thead>
+  <tr ng-repeat="row in highland.data.schedule[highland.data.day].times">
+    <td class="cell" ng-repeat="column in row">
+      <input class="cell-input" type="text" value="{{column}}">
+    </td>
+  </tr>
+</table>

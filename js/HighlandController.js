@@ -3,6 +3,8 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
   var pageName = "HighlandExpress";
 
   highland.loading = true;
+  highland.saving = true;
+  highland.data = {};
 
   highland.auth = {
     "password": "highland-staff",
