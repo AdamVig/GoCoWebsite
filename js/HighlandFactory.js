@@ -27,8 +27,8 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
    */
   highlandFactory.getData = function () {
     return BackendService.post(endpoint)
-            .success(handleResponse)
-            .error(handleError);
+            .then(handleResponse, handleError);
+  };
   };
 
   return highlandFactory;
