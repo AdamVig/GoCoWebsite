@@ -50,8 +50,11 @@
     <ng-include src="'html/_login-row.html'"></ng-include>
     <ng-include src="'html/_loading-row.html'"></ng-include>
     <div ng-if="highland.auth.authenticated && !highland.loading">
-      <ng-include src="'html/_announcement.html'"></ng-include>
-      <ng-include src="'html/_schedule.html'"></ng-include>
+      <h1 ng-show="!highland.data">Whoops! Something went wrong. Please reload the page to try again.</h1>
+      <div ng-show="highland.data">
+        <ng-include src="'html/_announcement.html'"></ng-include>
+        <ng-include src="'html/_schedule.html'"></ng-include>
+      </div>
     </div>
   </main>
   <footer>
