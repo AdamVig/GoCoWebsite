@@ -14,8 +14,16 @@ $highland-color: color(dark-green);
   }
   .highland-controls {
     margin-top: 2rem;
+    .highland-control-label {
+      text-transform: uppercase;
+      color: #555;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+    }
     .highland-control-button {
       border-color: $highland-color;
+      vertical-align: bottom;
     }
     @media (max-width: 500px) {
       .highland-control-button {
@@ -35,6 +43,36 @@ $highland-color: color(dark-green);
       height: 15px;
       margin-right: 1rem;
       background-color: color(muted-gray);
+    }
+  }
+  .highland-announcement {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: 500px) {
+      width: 90%;
+    }
+    .announcement-title,
+    .announcement-body {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .announcement-title:disabled,
+    .announcement-body:disabled {
+      background-color: color(light-gray);
+    }
+    .highland-announcement-enabled {
+      display: inline-block;
+      margin-left: 1rem;
+      vertical-align: baseline;
+    }
+    .announcement-title {
+      display: block;
+    }
+    .announcement-body {
+      display: block;
+      resize: none;
     }
   }
   .highland-schedule {

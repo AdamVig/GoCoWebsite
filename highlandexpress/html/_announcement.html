@@ -1,0 +1,38 @@
+<form class="highland-announcement"
+  name="highland.announcementform"
+  ng-submit="highland.save()">
+  <div class="highland-controls">
+    <button type="submit"
+      class="highland-control-button"
+      ng-hide="highland.announcementform.$pristine">
+      <span ng-show="!highland.saving.announcementForm">Save Changes</span>
+      <div ng-show="highland.saving.announcementForm">
+        <div class="highland-button-loader"></div>Saving...
+      </div>
+    </button>
+  </div>
+  <h3>Announcement</h3>
+  <div class="highland-announcement-enabled">
+    <span class="highland-control-label">Enabled:</span>
+    <span>
+      <div class="toggle">
+        <input type="checkbox"
+          name="announcement-enabled"
+          class="toggle-switch"
+          id="announcement-enabled"
+          ng-model="highland.data.announcement.enabled">
+        <label class="toggle-label" for="announcement-enabled"></label>
+      </div>
+    </span>
+  </div>
+  <input type="text"
+    class="announcement-title"
+    ng-model="highland.data.announcement.title"
+    ng-disabled="highland.saving.announcementForm || !highland.data.announcement.enabled">
+  <textarea class="announcement-body"
+    rows="8"
+    cols="40"
+    ng-model="highland.data.announcement.body"
+    ng-disabled="highland.saving.announcementForm || !highland.data.announcement.enabled">
+  </textarea>
+</form>

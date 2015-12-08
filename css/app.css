@@ -565,8 +565,15 @@ footer {
     color: #FFF; }
 .highland-express .highland-controls {
   margin-top: 2rem; }
+  .highland-express .highland-controls .highland-control-label {
+    text-transform: uppercase;
+    color: #555;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600; }
   .highland-express .highland-controls .highland-control-button {
-    border-color: #24A552; }
+    border-color: #24A552;
+    vertical-align: bottom; }
   @media (max-width: 500px) {
     .highland-express .highland-controls .highland-control-button {
       display: block;
@@ -581,6 +588,30 @@ footer {
     height: 15px;
     margin-right: 1rem;
     background-color: #838C8D; }
+.highland-express .highland-announcement {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto; }
+  @media (max-width: 500px) {
+    .highland-express .highland-announcement {
+      width: 90%; } }
+  .highland-express .highland-announcement .announcement-title,
+  .highland-express .highland-announcement .announcement-body {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto; }
+  .highland-express .highland-announcement .announcement-title:disabled,
+  .highland-express .highland-announcement .announcement-body:disabled {
+    background-color: #EEE; }
+  .highland-express .highland-announcement .highland-announcement-enabled {
+    display: inline-block;
+    margin-left: 1rem;
+    vertical-align: baseline; }
+  .highland-express .highland-announcement .announcement-title {
+    display: block; }
+  .highland-express .highland-announcement .announcement-body {
+    display: block;
+    resize: none; }
 .highland-express .highland-schedule {
   max-width: 90%;
   margin-left: auto;

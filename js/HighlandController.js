@@ -3,7 +3,10 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
   var pageName = "HighlandExpress";
 
   highland.loading = true;
-  highland.saving = true;
+  highland.saving = {
+    "announcementForm": false,
+    "scheduleForm": false
+  };
   highland.data = {};
 
   highland.auth = {
