@@ -360,6 +360,54 @@ main {
     main .color-row h1, main .color-row h2, main .color-row h3, main .color-row h4, main .color-row h5, main .color-row h6 {
       color: #FFF; }
 
+.toggle {
+  position: relative;
+  width: 65px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; }
+
+.toggle-switch {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden; }
+
+.toggle-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  border: 2px solid #CCCCCC;
+  border-radius: 30px;
+  background-color: #FFFFFF;
+  transition: background-color 0.3s ease-in; }
+
+.toggle-label:before {
+  content: "";
+  display: block;
+  width: 30px;
+  margin: 0px;
+  background: #FFFFFF;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 31px;
+  border: 2px solid #CCCCCC;
+  border-radius: 30px;
+  transition: all 0.3s ease-in 0s; }
+
+.toggle-switch:checked + .toggle-label {
+  background-color: #49E845; }
+
+.toggle-switch:checked + .toggle-label,
+.toggle-switch:checked + .toggle-label:before {
+  border-color: #49E845; }
+
+.toggle-switch:checked + .toggle-label:before {
+  right: 0px; }
+
 .loading-spinner, .highland-express .highland-controls .highland-button-loader {
   width: 50px;
   height: 50px;
