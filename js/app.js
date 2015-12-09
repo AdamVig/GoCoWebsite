@@ -6,7 +6,7 @@ app.constant('DatabaseConstant', {
   'password': 'W4LnuQ6uJpkioDRk5Pnvvoms'
 })
 .constant('BackendConstant', {
-  'url': 'https://api.adamvig.com/gocostudent/2.4/',
+  'url': 'http://local.dev:5000/gocostudent/2.4/',
   'username': '',
   'password': ''
 })

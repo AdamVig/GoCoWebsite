@@ -9,6 +9,8 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
   };
   highland.data = null;
 
+  highland.noDataErrorMessage = "Whoops! Something went wrong. Please reload the page and try again.";
+
   highland.auth = {
     "password": "highland-staff",
     "userAttempt": null,
