@@ -4,6 +4,14 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
   var endpoint = 'highlandexpress';
 
   highlandFactory.data = null;
+  highlandFactory.error = null;
+
+  /**
+   * Reset error to default value
+   */
+  function resetError() {
+    highlandFactory.error = null;
+  }
 
   /**
    * Handle data response from database
@@ -18,7 +26,11 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
    * @param  {string} error Error message from database
    */
   function handleError(error) {
-    console.log("Error getting Highland Express data: " + error.data);
+    if (error.status == 409) { // Conflict
+      highlandFactory.error = "Could not save data. Reload the page and try again.";
+    } else {
+      console.log("Error getting Highland Express data: " + error.data);
+    }
   }
 
   /**
@@ -26,6 +38,7 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
    * @return {object} Highland Express data
    */
   highlandFactory.getData = function () {
+    resetError();
     return BackendService.post(endpoint)
             .then(handleResponse, handleError);
   };
@@ -37,6 +50,7 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
    *                              doc format
    */
   highlandFactory.saveData = function (highlandDoc) {
+    resetError();
     return BackendService.put(endpoint, highlandDoc)
             .then(handleResponse, handleError);
   };

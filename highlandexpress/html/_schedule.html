@@ -16,6 +16,9 @@
   <h4 class="highland-schedule-day">
     {{highland.data.day}} Schedule
   </h4>
+  <div class="highland-error">
+    {{highland.error.scheduleForm}}
+  </div>
   <table class="highland-schedule">
     <thead class="highland-destinations">
       <td class="header-cell" ng-repeat="destination in highland.data.schedule[highland.data.day].destinations">

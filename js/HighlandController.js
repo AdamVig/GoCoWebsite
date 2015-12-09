@@ -7,6 +7,10 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
     "announcementForm": false,
     "scheduleForm": false
   };
+  highland.error = {
+    "announcementForm": null,
+    "scheduleForm": null
+  };
   highland.data = null;
 
   highland.noDataErrorMessage = "Whoops! Something went wrong. Please reload the page and try again.";
@@ -45,7 +49,11 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
   highland.save = function (formName) {
     highland.saving[formName] = true;
     HighlandFactory.saveData(highland.data).then(function () {
-      highland.data = HighlandFactory.data;
+      if (HighlandFactory.error) {
+        highland.error[formName] = HighlandFactory.error;
+      } else {
+        highland.data = HighlandFactory.data;
+      }
       highland.saving[formName] = false;
     });
   };
