@@ -599,6 +599,8 @@ footer {
   @media (max-width: 500px) {
     .highland-express .highland-announcement {
       width: 90%; } }
+  .highland-express .highland-announcement .announcement-heading {
+    margin-bottom: 1rem; }
   .highland-express .highland-announcement .announcement-title-input,
   .highland-express .highland-announcement .announcement-body-input {
     width: 100%;

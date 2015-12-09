@@ -57,6 +57,9 @@ $highland-color: color(dark-green);
     @media (max-width: 500px) {
       width: 90%;
     }
+    .announcement-heading {
+      margin-bottom: 1rem;
+    }
     .announcement-title-input,
     .announcement-body-input {
       width: 100%;
