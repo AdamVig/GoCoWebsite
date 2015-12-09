@@ -52,14 +52,14 @@ $highland-color: color(dark-green);
     @media (max-width: 500px) {
       width: 90%;
     }
-    .announcement-title,
-    .announcement-body {
+    .announcement-title-input,
+    .announcement-body-input {
       width: 100%;
       margin-left: auto;
       margin-right: auto;
     }
-    .announcement-title:disabled,
-    .announcement-body:disabled {
+    .announcement-title-input:disabled,
+    .announcement-body-input:disabled {
       background-color: color(light-gray);
     }
     .highland-announcement-enabled {
@@ -67,10 +67,10 @@ $highland-color: color(dark-green);
       margin-left: 1rem;
       vertical-align: baseline;
     }
-    .announcement-title {
+    .announcement-title-input {
       display: block;
     }
-    .announcement-body {
+    .announcement-body-input {
       display: block;
       resize: none;
     }

@@ -595,21 +595,21 @@ footer {
   @media (max-width: 500px) {
     .highland-express .highland-announcement {
       width: 90%; } }
-  .highland-express .highland-announcement .announcement-title,
-  .highland-express .highland-announcement .announcement-body {
+  .highland-express .highland-announcement .announcement-title-input,
+  .highland-express .highland-announcement .announcement-body-input {
     width: 100%;
     margin-left: auto;
     margin-right: auto; }
-  .highland-express .highland-announcement .announcement-title:disabled,
-  .highland-express .highland-announcement .announcement-body:disabled {
+  .highland-express .highland-announcement .announcement-title-input:disabled,
+  .highland-express .highland-announcement .announcement-body-input:disabled {
     background-color: #EEE; }
   .highland-express .highland-announcement .highland-announcement-enabled {
     display: inline-block;
     margin-left: 1rem;
     vertical-align: baseline; }
-  .highland-express .highland-announcement .announcement-title {
+  .highland-express .highland-announcement .announcement-title-input {
     display: block; }
-  .highland-express .highland-announcement .announcement-body {
+  .highland-express .highland-announcement .announcement-body-input {
     display: block;
     resize: none; }
 .highland-express .highland-schedule {
