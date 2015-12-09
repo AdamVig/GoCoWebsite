@@ -7,7 +7,7 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
     "announcementForm": false,
     "scheduleForm": false
   };
-  highland.data = {};
+  highland.data = null;
 
   highland.auth = {
     "password": "highland-staff",
@@ -37,6 +37,15 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
     } else {
       highland.data.day = highland.data.days[0];
     }
+  };
+
+  // Save changes to database
+  highland.save = function (formName) {
+    highland.saving[formName] = true;
+    HighlandFactory.saveData(highland.data).then(function () {
+      highland.data = HighlandFactory.data;
+      highland.saving[formName] = false;
+    });
   };
 
   highland.refresh();

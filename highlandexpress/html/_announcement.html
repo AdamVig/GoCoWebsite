@@ -1,6 +1,6 @@
 <form class="highland-announcement"
   name="highland.announcementform"
-  ng-submit="highland.save()">
+  ng-submit="highland.save('announcementForm')">
   <div class="highland-controls">
     <button type="submit"
       class="highland-control-button"
@@ -20,6 +20,7 @@
           name="announcement-enabled"
           class="toggle-switch"
           id="announcement-enabled"
+          ng-disabled="highland.saving.announcementForm"
           ng-model="highland.data.announcement.enabled">
         <label class="toggle-label" for="announcement-enabled"></label>
       </div>

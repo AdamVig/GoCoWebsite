@@ -3,7 +3,7 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
   var highlandFactory = this;
   var endpoint = 'highlandexpress';
 
-  highlandFactory.data = {};
+  highlandFactory.data = null;
 
   /**
    * Handle data response from database
@@ -29,6 +29,16 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
     return BackendService.post(endpoint)
             .then(handleResponse, handleError);
   };
+
+  /**
+   * Save Highland Express data
+   * @param  {object} highlandDoc Highland Express data in database doc format
+   * @return {object}             updated Highland Express data in database
+   *                              doc format
+   */
+  highlandFactory.saveData = function (highlandDoc) {
+    return BackendService.put(endpoint, highlandDoc)
+            .then(handleResponse, handleError);
   };
 
   return highlandFactory;
