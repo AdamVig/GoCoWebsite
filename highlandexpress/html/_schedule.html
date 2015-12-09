@@ -22,12 +22,19 @@
   <table class="highland-schedule">
     <thead class="highland-destinations">
       <td class="header-cell" ng-repeat="destination in highland.data.schedule[highland.data.day].destinations">
-        <div contenteditable class="header-input">{{destination}}</div>
+        <div contenteditable
+          class="header-input"
+          ng-model="highland.data.schedule[highland.data.day].destinations[$index]">
+          {{destination}}
+        </div>
       </td>
     </thead>
-    <tr ng-repeat="row in highland.data.schedule[highland.data.day].times">
-      <td class="cell" ng-repeat="column in row">
-        <input class="cell-input" type="text" value="{{column}}">
+    <tr ng-repeat="row in highland.data.schedule[highland.data.day].times track by $index">
+      <td class="cell" ng-repeat="column in row track by $index">
+        <input class="cell-input"
+          type="text"
+          value="{{column}}"
+          ng-model="highland.data.schedule[highland.data.day].times[$parent.$index][$index]">
       </td>
     </tr>
   </table>
