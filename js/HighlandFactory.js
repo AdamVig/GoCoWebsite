@@ -10,7 +10,7 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
    * @param  {object} response Highland Express doc from database
    */
   function handleResponse(response) {
-    highlandFactory.data = response.data;
+    highlandFactory.data = response.data.data;
   }
 
   /**
@@ -18,7 +18,7 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
    * @param  {string} error Error message from database
    */
   function handleError(error) {
-    console.log("Error getting Highland Express data: " + error);
+    console.log("Error getting Highland Express data: " + error.data);
   }
 
   /**
