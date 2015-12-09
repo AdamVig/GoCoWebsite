@@ -45,6 +45,11 @@ $highland-color: color(dark-green);
       background-color: color(muted-gray);
     }
   }
+  .highland-error {
+    margin-bottom: 1rem;
+    color: color(dark-red);
+    text-transform: none;
+  }
   .highland-announcement {
     width: 40%;
     margin-left: auto;

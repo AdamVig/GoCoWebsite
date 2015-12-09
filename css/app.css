@@ -588,6 +588,10 @@ footer {
     height: 15px;
     margin-right: 1rem;
     background-color: #838C8D; }
+.highland-express .highland-error {
+  margin-bottom: 1rem;
+  color: #A52D28;
+  text-transform: none; }
 .highland-express .highland-announcement {
   width: 40%;
   margin-left: auto;
