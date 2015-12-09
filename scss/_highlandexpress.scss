@@ -109,8 +109,10 @@ $highland-color: color(dark-green);
       }
     }
     .cell {
-      .cell-input {
+      .cell-input,
+      input.cell-input {
         max-width: 8rem;
+        margin-bottom: 0;
       }
     }
     @media (max-width: 500px) {

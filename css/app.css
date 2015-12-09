@@ -641,8 +641,10 @@ footer {
       border-radius: 4px;
       box-shadow: none;
       background: #FFF; }
-  .highland-express .highland-schedule .cell .cell-input {
-    max-width: 8rem; }
+  .highland-express .highland-schedule .cell .cell-input,
+  .highland-express .highland-schedule .cell input.cell-input {
+    max-width: 8rem;
+    margin-bottom: 0; }
   @media (max-width: 500px) {
     .highland-express .highland-schedule .cell {
       padding-left: 5px;
