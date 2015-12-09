@@ -1,0 +1,41 @@
+<form class="highland-scedule-container"
+  name="highland.scheduleform"
+  ng-submit="highland.save('scheduleForm')">
+  <div class="highland-controls">
+    <button type="submit"
+      class="highland-control-button"
+      ng-hide="highland.scheduleform.$pristine">
+      <span ng-show="!highland.saving.scheduleForm">Save Changes</span>
+      <div ng-show="highland.saving.scheduleForm">
+        <div class="highland-button-loader"></div>Saving...
+      </div>
+    </button>
+    <button class="highland-control-button"
+      ng-click="highland.nextSchedule()">Next Schedule</button>
+  </div>
+  <h4 class="highland-schedule-day">
+    {{highland.data.day}} Schedule
+  </h4>
+  <div class="highland-error">
+    {{highland.error.scheduleForm}}
+  </div>
+  <table class="highland-schedule">
+    <thead class="highland-destinations">
+      <td class="header-cell" ng-repeat="destination in highland.data.schedule[highland.data.day].destinations">
+        <div contenteditable
+          class="header-input"
+          ng-model="highland.data.schedule[highland.data.day].destinations[$index]">
+          {{destination}}
+        </div>
+      </td>
+    </thead>
+    <tr ng-repeat="row in highland.data.schedule[highland.data.day].times track by $index">
+      <td class="cell" ng-repeat="column in row track by $index">
+        <input class="cell-input"
+          type="text"
+          value="{{column}}"
+          ng-model="highland.data.schedule[highland.data.day].times[$parent.$index][$index]">
+      </td>
+    </tr>
+  </table>
+</form>

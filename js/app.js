@@ -5,6 +5,11 @@ app.constant('DatabaseConstant', {
   'username': 'ressiblythenahightedgers',
   'password': 'W4LnuQ6uJpkioDRk5Pnvvoms'
 })
+.constant('BackendConstant', {
+  'url': 'https://api.adamvig.com/gocostudent/2.4/',
+  'username': '',
+  'password': ''
+})
 .constant('LogsConstant', {
   'url': 'https://papertrailapp.com/systems/AdamVigAPI/events',
   'apiURL': 'https://papertrailapp.com/api/v1/',
