@@ -33,7 +33,7 @@
       <td class="cell" ng-repeat="column in row track by $index">
         <input class="cell-input"
           type="text"
-          value="{{column}}"
+          ng-value="column"
           ng-model="highland.data.schedule[highland.data.day].times[$parent.$index][$index]">
       </td>
     </tr>
