@@ -640,7 +640,13 @@ footer {
       /* The 6px vertically centers text on FF, ignored by Webkit */
       border-radius: 4px;
       box-shadow: none;
-      background: #FFF; }
+      background: #FFF;
+      resize: none; }
+  @media (max-width: 500px) {
+    .highland-express .highland-schedule .header-cell {
+      max-width: 10rem; }
+      .highland-express .highland-schedule .header-cell .header-input {
+        max-width: 10rem; } }
   .highland-express .highland-schedule .cell .cell-input,
   .highland-express .highland-schedule .cell input.cell-input {
     max-width: 8rem;

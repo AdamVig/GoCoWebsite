@@ -106,6 +106,15 @@ $highland-color: color(dark-green);
         border-radius: 4px;
         box-shadow: none;
         background: color(white);
+        resize: none;
+      }
+    }
+    @media (max-width: 500px) {
+      .header-cell {
+        max-width: 10rem;
+        .header-input {
+          max-width: 10rem;
+        }
       }
     }
     .cell {
