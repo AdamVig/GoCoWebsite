@@ -66,7 +66,8 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
     daySchedule.destinations.push("");
 
     daySchedule.times = _.map(daySchedule.times, function (row) {
-      return row.push("");
+      row.push(""); // Modifies in place, returns length of new array
+      return row;
     });
 
     highlandFactory.data.schedule[scheduleDay] = daySchedule;
