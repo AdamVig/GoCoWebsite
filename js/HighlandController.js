@@ -11,6 +11,7 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
     "announcementForm": null,
     "scheduleForm": null
   };
+  highland.scheduleModified = false;
   highland.data = null;
 
   highland.noDataErrorMessage = "Whoops! Something went wrong. Please reload the page and try again.";
@@ -62,24 +63,28 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
   highland.addScheduleTime = function (scheduleDay) {
     HighlandFactory.addScheduleTime(scheduleDay);
     highland.data = HighlandFactory.data;
+    highland.scheduleModified = true;
   };
 
   // Add destination to schedule
   highland.addScheduleDestination = function (scheduleDay) {
     HighlandFactory.addScheduleDestination(scheduleDay);
     highland.data = HighlandFactory.data;
+    highland.scheduleModified = true;
   };
 
   // Remove time from schedule
   highland.removeScheduleTime = function (scheduleDay) {
     HighlandFactory.removeScheduleTime(scheduleDay);
     highland.data = HighlandFactory.data;
+    highland.scheduleModified = true;
   };
 
   // Remove destination from schedule
   highland.removeScheduleDestination = function (scheduleDay) {
     HighlandFactory.removeScheduleDestination(scheduleDay);
     highland.data = HighlandFactory.data;
+    highland.scheduleModified = true;
   };
 
   highland.refresh();

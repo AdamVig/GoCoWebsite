@@ -4,7 +4,7 @@
   <div class="highland-controls">
     <button type="submit"
       class="highland-control-button"
-      ng-hide="highland.scheduleform.$pristine">
+      ng-show="highland.scheduleform.$dirty || highland.scheduleModified">
       <span ng-show="!highland.saving.scheduleForm">Save Changes</span>
       <div ng-show="highland.saving.scheduleForm">
         <div class="highland-button-loader"></div>Saving...
