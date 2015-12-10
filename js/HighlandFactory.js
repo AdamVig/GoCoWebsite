@@ -55,5 +55,66 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
             .then(handleResponse, handleError);
   };
 
+  /**
+   * Add a destination to the schedule
+   * @param {string} scheduleDay Which schedule day (weekday, Friday, etc.) to
+   *                             modify
+   */
+  highlandFactory.addScheduleDestination = function (scheduleDay) {
+    var daySchedule = highlandFactory.data.schedule[scheduleDay];
+
+    daySchedule.destinations.push("");
+
+    daySchedule.times = _.map(daySchedule.times, function (row) {
+      return row.push("");
+    });
+
+    highlandFactory.data.schedule[scheduleDay] = daySchedule;
+  };
+
+  /**
+   * Add a time to the schedule
+   * @param {string} scheduleDay Which schedule day (weekday, Friday, etc.) to
+   *                             modify
+   */
+  highlandFactory.addScheduleTime = function (scheduleDay) {
+    var daySchedule = highlandFactory.data.schedule[scheduleDay];
+    var numDestinations = daySchedule.destinations.length;
+
+    // Create array of empty strings
+    var newTimes = Array(numDestinations).join(".").split(".");
+
+    daySchedule.times.push(newTimes);
+
+    highlandFactory.data.schedule[scheduleDay] = daySchedule;
+  };
+
+  /**
+   * Remove the last destination from the schedule
+   * @param {string} scheduleDay Which schedule day (weekday, Friday, etc.) to
+   *                             modify
+   */
+  highlandFactory.removeScheduleDestination = function (scheduleDay) {
+    var daySchedule = highlandFactory.data.schedule[scheduleDay];
+
+    daySchedule.destinations.pop();
+
+    daySchedule.times = _.map(daySchedule.times, function (row) {
+      row.pop(); // Modifies in place, returns removed element
+      return row;
+    });
+
+    highlandFactory.data.schedule[scheduleDay] = daySchedule;
+  };
+
+  /**
+   * Remove the last row of times from the schedule
+   * @param {string} scheduleDay Which schedule day (weekday, Friday, etc.) to
+   *                             modify
+   */
+  highlandFactory.removeScheduleTime = function (scheduleDay) {
+    highlandFactory.data.schedule[scheduleDay].times.pop();
+  };
+
   return highlandFactory;
 }]);

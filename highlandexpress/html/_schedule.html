@@ -21,7 +21,7 @@
   </div>
   <table class="highland-schedule">
     <thead class="highland-destinations">
-      <td class="header-cell" ng-repeat="destination in highland.data.schedule[highland.data.day].destinations">
+      <td class="header-cell" ng-repeat="destination in highland.data.schedule[highland.data.day].destinations track by $index">
         <div contenteditable
           class="header-input"
           ng-model="highland.data.schedule[highland.data.day].destinations[$index]">
@@ -38,4 +38,21 @@
       </td>
     </tr>
   </table>
+  <button type="button"
+    ng-click="highland.addScheduleTime(highland.data.day)">
+    Add Row of Times
+  </button>
+  <button type="button"
+    ng-click="highland.addScheduleDestination(highland.data.day)">
+    Add Destination
+  </button>
+  <br>
+  <button type="button"
+    ng-click="highland.removeScheduleTime(highland.data.day)">
+    Remove Last Row
+  </button>
+  <button type="button"
+    ng-click="highland.removeScheduleDestination(highland.data.day)">
+    Remove Last Destination
+  </button>
 </form>

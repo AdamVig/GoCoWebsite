@@ -58,5 +58,33 @@ app.controller('HighlandController', ['LoginService', 'HighlandFactory', functio
     });
   };
 
+  // Add time to schedule
+  highland.addScheduleTime = function (scheduleDay) {
+    HighlandFactory.addScheduleTime(scheduleDay);
+    highland.data = HighlandFactory.data;
+    console.dir(highland.data.schedule[scheduleDay]);
+  };
+
+  // Add destination to schedule
+  highland.addScheduleDestination = function (scheduleDay) {
+    HighlandFactory.addScheduleDestination(scheduleDay);
+    highland.data = HighlandFactory.data;
+    console.dir(highland.data.schedule[scheduleDay]);
+  };
+
+  // Remove time from schedule
+  highland.removeScheduleTime = function (scheduleDay) {
+    HighlandFactory.removeScheduleTime(scheduleDay);
+    highland.data = HighlandFactory.data;
+    console.dir(highland.data.schedule[scheduleDay]);
+  };
+
+  // Remove destination from schedule
+  highland.removeScheduleDestination = function (scheduleDay) {
+    HighlandFactory.removeScheduleDestination(scheduleDay);
+    highland.data = HighlandFactory.data;
+    console.dir(highland.data.schedule[scheduleDay]);
+  };
+
   highland.refresh();
 }]);
