@@ -50,8 +50,9 @@
     <ng-include src="'html/_login-row.html'"></ng-include>
     <ng-include src="'html/_loading-row.html'"></ng-include>
     <div ng-if="highland.auth.authenticated && !highland.loading">
-      <h3 class="highland-error" ng-if="!highland.data">
-        {{highland.noDataErrorMessage}}
+      <h3 class="highland-error"
+        ng-show="!highland.data"
+        ng-bind="highland.noDataErrorMessage">
       </h3>
       <div ng-show="highland.data">
         <ng-include src="'html/_announcement.html'"></ng-include>
