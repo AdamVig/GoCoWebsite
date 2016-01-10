@@ -39,7 +39,7 @@ app.factory('HighlandFactory', ['DatabaseFactory', 'BackendService', function (D
    */
   highlandFactory.getData = function () {
     resetError();
-    return BackendService.post(endpoint)
+    return BackendService.get(endpoint)
             .then(handleResponse, handleError);
   };
 
