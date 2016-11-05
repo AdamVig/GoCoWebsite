@@ -41,6 +41,6 @@ app.service('BackendService', ['$http', 'BackendConstant', function ($http, Back
       timeout: timeout || defaultTimeoutMs
     };
 
-    return $http.put(url, payload, config);
+      return $http.put(url, {data: payload}, config);
   };
 }]);

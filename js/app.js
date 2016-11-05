@@ -6,12 +6,12 @@ app.constant('DatabaseConstant', {
   'password': 'W4LnuQ6uJpkioDRk5Pnvvoms'
 })
 .constant('BackendConstant', {
-  'url': 'https://api.adamvig.com/gocostudent/2.4/',
+  'url': 'https://gocostudent.adamvig.com/api/',
   'username': '',
   'password': ''
 })
 .constant('LogsConstant', {
-  'url': 'https://papertrailapp.com/systems/AdamVigAPI/events',
+  'url': 'https://papertrailapp.com/systems/GoCo-API-Legacy/events',
   'apiURL': 'https://papertrailapp.com/api/v1/',
   'token': 'aDaDyb4E2vu3deKfdo9G'
 });
